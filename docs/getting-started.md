@@ -27,6 +27,8 @@ cd project-name
 ng serve
 ```
 
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut?file=src%2Fapp%2Fapp.component.ts)
+
 ## Add Routing at project creation time
 
 When you add routing at project creation time, the differences are:
