@@ -1,2 +1,5 @@
 # angular-foxdonut
-Learning Angular
+
+Learning Angular.
+
+- [Getting Started](docs/getting-started.md)
