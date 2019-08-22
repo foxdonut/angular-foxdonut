@@ -7,3 +7,4 @@ Learning Angular.
 - [Creating Components](docs/creating-components.md)
 - [Using a CSS Framework](docs/css-framework.md)
 - [`@Component` Options](docs/component-options.md)
+- [Bindings](docs/bindings.md)

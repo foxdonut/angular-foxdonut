@@ -1,0 +1,18 @@
+<p>bindings work!</p>
+
+<div>simpleValue: {{ simpleValue }}</div>
+<div>Length of simpleValue: {{ simpleValue.length }}</div>
+<p>uppercase pipe: {{ simpleValue | uppercase }}</p>
+
+<div>
+  Counter: {{ counter }}
+</div>
+<p>
+  <button class="btn btn-primary btn-xs"
+    [disabled]="counter >= 10"
+    (click)="incrementCounter()">Increment</button>
+</p>
+
+<div>Using <code>$event</code>:</div>
+<input type="text" (input)="onInput($event)">
+<p>Input: {{ input }}</p>
