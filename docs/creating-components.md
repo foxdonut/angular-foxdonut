@@ -34,7 +34,7 @@ src/app/app.module.ts
 
 to import `HelloComponent` and add it to the array of `declarations`.
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut?file=src%2Fapp%2Fcomponent%2Fhello%2Fhello.component.ts)
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/basic?file=src%2Fapp%2Fcomponent%2Fhello%2Fhello.component.ts)
 
 ## Options
 

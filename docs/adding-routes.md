@@ -64,6 +64,6 @@ To add a link:
 <a [routerLink]="['/hello']">Hello</a>
 ```
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut?file=src%2Fapp%2Fapp-routing.module.ts)
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/basic?file=src%2Fapp%2Fapp-routing.module.ts)
 
 [Contents](../README.md)
