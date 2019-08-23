@@ -8,6 +8,7 @@ export class BindingsComponent implements OnInit {
   simpleValue = 'Hello, world';
   counter = 0;
   input = '';
+  twInput = '';
 
   constructor() { }
 
@@ -20,5 +21,9 @@ export class BindingsComponent implements OnInit {
 
   onInput(event: Event) {
     this.input = (event.target as HTMLInputElement).value;
+  }
+
+  onChangeTwInput() {
+    this.twInput = 'changed';
   }
 }

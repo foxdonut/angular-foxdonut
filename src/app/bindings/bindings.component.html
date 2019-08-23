@@ -16,3 +16,8 @@
 <div>Using <code>$event</code>:</div>
 <input type="text" (input)="onInput($event)">
 <p>Input: {{ input }}</p>
+
+<div>Using two-way binding with <code>ngModel</code></div>
+<input type="text" [(ngModel)]="twInput">
+<p>Input: {{ twInput }}</p>
+<button class="btn btn-primary btn-xs" (click)="onChangeTwInput()">Change</button>
