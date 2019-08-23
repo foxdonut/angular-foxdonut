@@ -15,6 +15,7 @@ import { ComponentOptionsStyleComponent } from './component/component-options/co
 // tslint:disable-next-line
 import { ComponentOptionsTemplateComponent } from './component/component-options/component-options-template/component-options-template.component';
 import { BindingsComponent } from './bindings/bindings.component';
+import { UsingDirectivesComponent } from './using-directives/using-directives.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BindingsComponent } from './bindings/bindings.component';
     ComponentOptionsSelectorComponent,
     ComponentOptionsStyleComponent,
     ComponentOptionsTemplateComponent,
-    BindingsComponent
+    BindingsComponent,
+    UsingDirectivesComponent
   ],
   imports: [
     BrowserModule,

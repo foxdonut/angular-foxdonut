@@ -1,0 +1,12 @@
+.low {
+  color: white;
+  background-color: red;
+}
+.high {
+  color: lime;
+  background-color: darkgreen;
+}
+.low, .high {
+  padding-left: 2px;
+  padding-right: 2px;
+}

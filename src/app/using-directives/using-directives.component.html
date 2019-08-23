@@ -1,0 +1,38 @@
+<p>using-directives</p>
+
+<div>
+  Counter:
+  <span [ngStyle]="{color: counter <= 0 ? 'red' : 'green'}">{{ counter }}</span>
+</div>
+<div>
+  Counter:
+  <span [ngClass]="{low: counter <= 0, high: counter > 0}">{{ counter }}</span>
+</div>
+<div>
+  <button class="btn btn-primary btn-xs"
+    (click)="increment(1)">Increment</button>
+  <button class="btn btn-primary btn-xs"
+    (click)="increment(-1)" style="margin-left: 8px">Decrement</button>
+</div>
+<p *ngIf="counter > 5; else lowCounter">Counter value is high</p>
+<ng-template #lowCounter><p>Counter value is low</p></ng-template>
+
+<div>items:</div>
+<table class="table">
+  <tr>
+    <th>name</th>
+    <th>index</th>
+    <th>first</th>
+    <th>last</th>
+    <th>even</th>
+    <th>odd</th>
+  </tr>
+  <tr *ngFor="let item of items; index as index; first as first; last as last; let even = even; let odd = odd">
+    <td>{{ item.name }}</td>
+    <td>{{ index }}</td>
+    <td>{{ first }}</td>
+    <td>{{ last }}</td>
+    <td>{{ even }}</td>
+    <td>{{ odd }}</td>
+  </tr>
+</table>

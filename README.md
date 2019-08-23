@@ -8,3 +8,4 @@ Learning Angular.
 - [Using a CSS Framework](docs/css-framework.md)
 - [`@Component` Options](docs/component-options.md)
 - [Bindings](docs/bindings.md)
+- [Using Directives](docs/using-directives.md)
