@@ -9,3 +9,5 @@ Learning Angular.
 - [`@Component` Options](docs/component-options.md)
 - [Bindings](docs/bindings.md)
 - [Using Directives](docs/using-directives.md)
+- [Template-Driven Forms](docs/template-forms.md)
+- [Reactive Forms](docs/reactive-forms.md)
