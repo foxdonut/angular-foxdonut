@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
   styles: []
 })
 export class TemplateFormComponent implements OnInit {
+  choices = ['Internet', 'Phone', 'Word of mouth', 'Other'];
   submittedForm = '';
 
   constructor() { }

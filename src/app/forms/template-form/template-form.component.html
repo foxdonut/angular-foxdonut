@@ -16,8 +16,8 @@
 
   <div class="form-group">
     <label for="howDidYouHear">How did you hear about us?</label>
-    <select class="form-control">
-
+    <select class="form-control" name="howDidYouHear" ngModel>
+      <option *ngFor="let choice of choices">{{ choice }}</option>
     </select>
   </div>
 
