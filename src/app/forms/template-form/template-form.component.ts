@@ -7,7 +7,9 @@ import { NgForm } from '@angular/forms';
   styles: []
 })
 export class TemplateFormComponent implements OnInit {
+  // @ViewChild('f') myForm: NgForm;
   choices = ['Internet', 'Phone', 'Word of mouth', 'Other'];
+  genders = ['Female', 'Male', 'Non-binary'];
   submittedForm = '';
 
   constructor() { }
@@ -15,8 +17,7 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit1(form: NgForm) {
-    console.log('submitted');
-    this.submittedForm = JSON.stringify(form.value, null, 2);
+  onSubmit(myForm: NgForm) {
+    this.submittedForm = JSON.stringify(myForm.value, null, 2);
   }
 }
