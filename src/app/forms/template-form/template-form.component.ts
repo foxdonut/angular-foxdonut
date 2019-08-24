@@ -20,4 +20,8 @@ export class TemplateFormComponent implements OnInit {
   onSubmit(myForm: NgForm) {
     this.submittedForm = JSON.stringify(myForm.value, null, 2);
   }
+
+  onReset(myForm: NgForm) {
+    myForm.reset();
+  }
 }

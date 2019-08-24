@@ -106,6 +106,11 @@ suggestUsername() {
 }
 ```
 
+## Resetting the Form
+
+To reset the form, call `this.myForm.reset()`. You can also pass in an object as in `patchValue`, to
+reinstate default values on inputs.
+
 ## Form State
 
 The `NgForm` object has several properties reflecting the form state:
