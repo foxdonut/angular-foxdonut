@@ -58,7 +58,7 @@ We can also use `form.submitted` to display a message only after the form was su
 
 We can use `[disabled]="myForm.invalid"` on the submit button.
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/validation?file=src%2Fapp%2Fvalidation%2Freactive-form%2Fvalidation-reactive-form.component.html)
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/validation?file=src%2Fapp%2Fvalidation%2Fvalidation-reactive-form%2Fvalidation-reactive-form.component.html)
 
 For the complete list of built-in validators, see the
 [documentation](https://angular.io/api/forms/Validators).

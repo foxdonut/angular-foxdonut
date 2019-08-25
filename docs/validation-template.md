@@ -64,7 +64,7 @@ We can also use `form.submitted` to display a message only after the form was su
 We can use `[disabled]="f.invalid"` on the submit button, where `f` is `#f="ngForm"` on the `<form>`
 tag.
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/validation?file=src%2Fapp%2Fvalidation%2Ftemplate-form%2Fvalidation-template-form.component.html)
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/validation?file=src%2Fapp%2Fvalidation%2Fvalidation-template-form%2Fvalidation-template-form.component.html)
 
 For the complete list of built-in validators, see the
 [documentation](https://angular.io/api/forms/Validators).
