@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # Reactive Forms
 
@@ -91,8 +91,10 @@ onAddInput() {
 To add the controls to the template:
 
 ```html
-<div formArrayName="inputName">
-  <div *ngFor="let ctrl of myForm.get('inputName').controls; let i = index">
+<div formArrayName="otherItems">
+  Other items:
+  <button type="button" class="btn btn-primary btn-sm" (click)="onAddItem()">Add Item</button>
+  <div *ngFor="let ctrl of myForm.get('otherItems').controls; let i = index" style="margin-top: 8px">
     <input type="text" [formControlName]="i">
   </div>
 </div>
@@ -150,4 +152,4 @@ We will be using some of these when we look at validation.
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/forms?file=src%2Fapp%2Fforms%2Freactive-form%2Freactive-form.component.ts)
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)

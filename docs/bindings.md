@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # Bindings
 
@@ -70,4 +70,4 @@ text field's `input` event or changes to `twInput` from the component.
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/bindings?file=src%2Fapp%2Fbindings%2Fbindings.component.html)
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)

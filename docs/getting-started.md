@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # Getting Started
 
@@ -38,4 +38,4 @@ When you add routing at project creation time, the differences are:
 - `src/app/app.component.html` includes a `<router-outlet>` tag
 - `src/app/app.component.spec.ts` imports `RouterTestingModule`
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)

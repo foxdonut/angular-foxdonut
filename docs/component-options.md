@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # `@Component` Options
 
@@ -32,4 +32,4 @@ styles as strings.
 There are more options, which we will see as needed in other sections. See all the options in the
 [documentation](https://angular.io/api/core/Component).
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)

@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # Template-Driven Forms
 
@@ -85,6 +85,29 @@ You can group inputs by wrapping them into an element (e.g. a `<div>`) and addin
 </form>
 ```
 
+## Arrays of Form Controls
+
+Use an array and `[ngModelGroup]` to have a dynamic array of form controls. When adding to the
+array:
+
+```javascript
+onAddInput() {
+  this.otherItems.push({});
+}
+```
+
+To add the controls to the template:
+
+```html
+<div>
+  Other items:
+  <button type="button" class="btn btn-primary btn-sm" (click)="onAddItem()">Add Item</button>
+  <div *ngFor="let item of otherItems; let i = index" [ngModelGroup]="i" style="margin-top: 8px">
+    <input type="text" name="item" ngModel>
+  </div>
+</div>
+```
+
 ## Setting and Patching Values
 
 You can programmatically set and patch form values with `myForm.setValue` and
@@ -134,4 +157,4 @@ We will be using some of these when we look at validation.
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/forms?file=src%2Fapp%2Fforms%2Ftemplate-form%2Ftemplate-form.component.html)
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)

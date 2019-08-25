@@ -38,7 +38,15 @@
     </label>
   </div>
 
-  <div class="form-group">
+  <div>
+    Other items:
+    <button type="button" class="btn btn-primary btn-sm" (click)="onAddItem()">Add Item</button>
+    <div *ngFor="let item of otherItems; let i = index" [ngModelGroup]="i" style="margin-top: 8px">
+      <input type="text" name="item" ngModel>
+    </div>
+  </div>
+
+  <div class="form-group" style="margin-top: 8px">
     <button type="submit" class="btn btn-primary btn-sm">Submit Form</button>
     <button type="button" class="btn btn-danger btn-sm" style="margin-left: 8px"
       (click)="onReset(f)">Clear Form</button>

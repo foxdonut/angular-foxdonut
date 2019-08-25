@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # Adding Routes
 
@@ -66,4 +66,4 @@ To add a link:
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/basic?file=src%2Fapp%2Fapp-routing.module.ts)
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)

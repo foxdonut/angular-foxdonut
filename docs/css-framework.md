@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # Using a CSS Framework
 
@@ -38,4 +38,4 @@ components.
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/css-framework?file=angular.json)
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)

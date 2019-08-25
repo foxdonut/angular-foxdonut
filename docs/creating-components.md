@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # Creating Components
 
@@ -54,4 +54,4 @@ only generates `src/app/duck/duck.component.ts`.
 
 See all the options in the [documentation](https://angular.io/cli/generate#component-command).
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)

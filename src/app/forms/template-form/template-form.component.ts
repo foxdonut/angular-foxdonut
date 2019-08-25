@@ -10,11 +10,16 @@ export class TemplateFormComponent implements OnInit {
   @ViewChild('f', { static: false }) myForm: NgForm;
   choices = ['Internet', 'Phone', 'Word of mouth', 'Other'];
   genders = ['Female', 'Male', 'Non-binary'];
+  otherItems = [];
   submittedForm = '';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onAddItem() {
+    this.otherItems.push({});
   }
 
   suggestUsername() {

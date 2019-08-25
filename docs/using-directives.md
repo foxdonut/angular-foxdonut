@@ -1,6 +1,6 @@
 # angular-foxdonut
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
 
 # Using Directives
 
@@ -81,4 +81,4 @@ results to a truthy value, the class is added to the element's class list.
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/using-directives?file=src%2Fapp%2Fusing-directives%2Fusing-directives.component.html)
 
-[Contents](../README.md)
+[Contents](../README.md#angular-foxdonut)
