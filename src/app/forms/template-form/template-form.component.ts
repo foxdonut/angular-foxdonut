@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styles: []
 })
 export class TemplateFormComponent implements OnInit {
-  // @ViewChild('f') myForm: NgForm;
+  @ViewChild('f', null) myForm: NgForm;
   choices = ['Internet', 'Phone', 'Word of mouth', 'Other'];
   genders = ['Female', 'Male', 'Non-binary'];
   submittedForm = '';
@@ -15,6 +15,15 @@ export class TemplateFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  suggestUsername() {
+    // This only sets the specified values and leaves the rest unchanged
+    this.myForm.form.patchValue({
+      userData: {
+        username: 'Suggested'
+      }
+    });
   }
 
   onSubmit(myForm: NgForm) {

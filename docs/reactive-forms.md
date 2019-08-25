@@ -33,8 +33,6 @@ export class ReactiveFormComponent implements OnInit {
 }
 ```
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/forms?file=src%2Fapp%2Fforms%2Freactive-form%2Freactive-form.component.ts)
-
 Here is the corresponding template:
 
 ```html
@@ -57,8 +55,6 @@ Here is the corresponding template:
   <pre>{{ submittedForm }}</pre>
 </form>
 ```
-
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/forms?file=src%2Fapp%2Fforms%2Freactive-form%2Freactive-form.component.html)
 
 ## Grouping Inputs
 
@@ -88,7 +84,7 @@ Use `new FormArray([])` to have a dynamic array of form controls. When adding to
 ```javascript
 onAddInput() {
   const control = new FormControl();
-  (<FormArray>this.myForm.get('inputName')).push(control);
+  (this.myForm.get('otherItems') as FormArray).push(control);
 }
 ```
 
@@ -117,11 +113,14 @@ suggestUsername() {
   this.myForm.setValue({
     username: "suggested",
     password: ""
+    // ...
   });
 
   // This only sets the specified values and leaves the rest unchanged
-  this.myForm.form.patchValue({
-    username: "suggested"
+  this.myForm.patchValue({
+    userData: {
+      username: "suggested"
+    }
   });
 }
 ```
@@ -146,5 +145,7 @@ The `FormGroup` object has several properties reflecting the form state:
 - `touched`
 - `untouched`
 - `valid`
+
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/forms?file=src%2Fapp%2Fforms%2Freactive-form%2Freactive-form.component.ts)
 
 [Contents](../README.md)

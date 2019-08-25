@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -16,15 +16,36 @@ export class ReactiveFormComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = new FormGroup({
-      email: new FormControl('default@me.com'),
-      username: new FormControl(),
-      password: new FormControl(),
+      userData: new FormGroup({
+        email: new FormControl('default@me.com'),
+        username: new FormControl(),
+        password: new FormControl()
+      }),
       howDidYouHear: new FormControl(),
-      gender: new FormControl()
+      gender: new FormControl(),
+      otherItems: new FormArray([])
+    });
+  }
+
+  onAddItem() {
+    const control = new FormControl();
+    (this.myForm.get('otherItems') as FormArray).push(control);
+  }
+
+  suggestUsername() {
+    // This only sets the specified values and leaves the rest unchanged
+    this.myForm.patchValue({
+      userData: {
+        username: 'Suggested'
+      }
     });
   }
 
   onSubmit() {
     this.submittedForm = JSON.stringify(this.myForm.value, null, 2);
+  }
+
+  onReset() {
+    this.myForm.reset();
   }
 }
