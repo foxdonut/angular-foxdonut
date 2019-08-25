@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styles: []
 })
 export class TemplateFormComponent implements OnInit {
-  @ViewChild('f', null) myForm: NgForm;
+  @ViewChild('f', { static: false }) myForm: NgForm;
   choices = ['Internet', 'Phone', 'Word of mouth', 'Other'];
   genders = ['Female', 'Male', 'Non-binary'];
   submittedForm = '';

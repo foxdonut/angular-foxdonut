@@ -146,6 +146,8 @@ The `FormGroup` object has several properties reflecting the form state:
 - `untouched`
 - `valid`
 
+We will be using some of these when we look at validation.
+
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/forms?file=src%2Fapp%2Fforms%2Freactive-form%2Freactive-form.component.ts)
 
 [Contents](../README.md)

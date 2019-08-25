@@ -48,12 +48,15 @@ An alternative to using `onSubmit(f)` for passing the form to the component is t
 
 ```javascript
 export class TemplateFormComponent {
-  @ViewChild('f') myForm: NgForm;
+  @ViewChild('f', { static: false }) myForm: NgForm;
 }
 ```
 
 Then we don't need to pass `f` in `onSubmit`, i.e. `(ngSubmit)="onSubmit()"`, and we can access the
 form using `this.myForm`.
+
+> The second parameter is new in Angular 8; see
+[static-query-migration](https://angular.io/guide/static-query-migration) for details.
 
 ## Grouping Inputs
 
@@ -126,6 +129,8 @@ The `NgForm` object has several properties reflecting the form state:
 - `touched`
 - `untouched`
 - `valid`
+
+We will be using some of these when we look at validation.
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/forms?file=src%2Fapp%2Fforms%2Ftemplate-form%2Ftemplate-form.component.html)
 
