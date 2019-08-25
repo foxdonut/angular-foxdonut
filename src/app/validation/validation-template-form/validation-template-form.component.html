@@ -1,0 +1,61 @@
+<h4>validation - template form</h4>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form">
+  <div ngModelGroup="userData">
+    <div class="form-group" [ngClass]="{ 'was-validated': email.touched && email.valid }">
+      <label>Email</label>
+      <input #email="ngModel" type="text" class="form-control" name="email"
+        [ngModel]="'default@me.com'" email [ngClass]="{ 'is-invalid': email.invalid }">
+      <div class="invalid-feedback">Email is not valid.</div>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'was-validated': username.touched }">
+      <label>Username <span class="text-danger">*</span></label>
+      <input #username="ngModel" type="text" class="form-control" name="username"
+        ngModel required>
+      <div class="invalid-feedback">Username is required.</div>
+    </div>
+    <div>
+      <button class="btn btn-primary btn-sm"
+        (click)="suggestUsername()">
+        Suggest
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" name="password" ngModel>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>How did you hear about us?</label>
+    <select class="form-control" name="howDidYouHear" ngModel>
+      <option *ngFor="let choice of choices">{{ choice }}</option>
+    </select>
+  </div>
+
+  <div class="radio" *ngFor="let gdr of genders">
+    <label>
+      <input type="radio" name="gender" ngModel [value]="gdr">
+      {{ gdr }}
+    </label>
+  </div>
+
+  <div>
+    Other items:
+    <button type="button" class="btn btn-primary btn-sm" (click)="onAddItem()">Add Item</button>
+    <div *ngFor="let item of otherItems; let i = index" [ngModelGroup]="i" style="margin-top: 8px">
+      <input type="text" name="item" ngModel>
+    </div>
+  </div>
+
+  <div class="form-group" style="margin-top: 8px">
+    <button type="submit" class="btn btn-primary btn-sm" [disabled]="f.invalid">Submit Form</button>
+    <button type="button" class="btn btn-danger btn-sm" style="margin-left: 8px"
+      (click)="onReset(f)">Clear Form</button>
+  </div>
+
+  <div>Submitted form:</div>
+  <pre>{{ submittedForm }}</pre>
+</form>

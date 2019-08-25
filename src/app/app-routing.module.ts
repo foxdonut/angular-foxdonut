@@ -5,13 +5,15 @@ import { ComponentOptionsComponent } from './component/component-options/compone
 import { BindingsComponent } from './bindings/bindings.component';
 import { UsingDirectivesComponent } from './using-directives/using-directives.component';
 import { FormsComponent } from './forms/forms.component';
+import { ValidationComponent } from './validation/validation.component';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
   { path: 'component-options', component: ComponentOptionsComponent },
   { path: 'bindings', component: BindingsComponent },
   { path: 'using-directives', component: UsingDirectivesComponent },
-  { path: 'forms', component: FormsComponent }
+  { path: 'forms', component: FormsComponent },
+  { path: 'validation', component: ValidationComponent }
 ];
 
 @NgModule({

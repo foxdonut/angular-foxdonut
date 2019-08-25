@@ -19,6 +19,9 @@ import { UsingDirectivesComponent } from './using-directives/using-directives.co
 import { TemplateFormComponent } from './forms/template-form/template-form.component';
 import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
 import { FormsComponent } from './forms/forms.component';
+import { ValidationComponent } from './validation/validation.component';
+import { ValidationTemplateFormComponent } from './validation/validation-template-form/validation-template-form.component';
+import { ValidationReactiveFormComponent } from './validation/validation-reactive-form/validation-reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { FormsComponent } from './forms/forms.component';
     UsingDirectivesComponent,
     TemplateFormComponent,
     ReactiveFormComponent,
-    FormsComponent
+    FormsComponent,
+    ValidationComponent,
+    ValidationTemplateFormComponent,
+    ValidationReactiveFormComponent
   ],
   imports: [
     BrowserModule,
