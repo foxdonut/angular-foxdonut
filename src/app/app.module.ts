@@ -22,6 +22,7 @@ import { FormsComponent } from './forms/forms.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ValidationTemplateFormComponent } from './validation/validation-template-form/validation-template-form.component';
 import { ValidationReactiveFormComponent } from './validation/validation-reactive-form/validation-reactive-form.component';
+import { CustomValidatorsComponent } from './custom-validators/custom-validators.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ValidationReactiveFormComponent } from './validation/validation-reactiv
     FormsComponent,
     ValidationComponent,
     ValidationTemplateFormComponent,
-    ValidationReactiveFormComponent
+    ValidationReactiveFormComponent,
+    CustomValidatorsComponent
   ],
   imports: [
     BrowserModule,
