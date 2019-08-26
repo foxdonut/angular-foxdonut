@@ -36,7 +36,7 @@ Use `pattern` to constrain the input to match a regular expression:
 
 ```javascript
 username: new FormControl(null, [
-  Validators.required, Validators.minLength(3), Validators.pattern(/\w*/)
+  Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z0-9]*')
 ])
 ```
 
