@@ -12,8 +12,13 @@
     <div class="form-group" [ngClass]="{ 'was-validated': username.touched }">
       <label>Username <span class="text-danger">*</span></label>
       <input #username="ngModel" type="text" class="form-control" name="username"
-        ngModel required>
-      <div class="invalid-feedback">Username is required.</div>
+        ngModel required minlength="3" pattern="\w*">
+      <div [hidden]="!username.hasError('required') || !username.touched"
+        class="text-danger">Username is required.</div>
+      <div [hidden]="!username.hasError('minlength') || !username.touched"
+        class="text-danger">Username must be at least 3 characters.</div>
+      <div [hidden]="!username.hasError('pattern') || !username.touched"
+        class="text-danger">Please use only letters and numbers.</div>
     </div>
     <div>
       <button class="btn btn-primary btn-sm"
@@ -31,6 +36,7 @@
   <div class="form-group">
     <label>How did you hear about us?</label>
     <select class="form-control" name="howDidYouHear" ngModel>
+      <option value=""></option>
       <option *ngFor="let choice of choices">{{ choice }}</option>
     </select>
   </div>

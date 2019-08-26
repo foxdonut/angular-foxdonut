@@ -18,18 +18,44 @@ export class ValidationReactiveFormComponent implements OnInit {
     this.myForm = new FormGroup({
       userData: new FormGroup({
         email: new FormControl('default@me.com', Validators.email),
-        username: new FormControl(null, Validators.required),
+        username: new FormControl(null, [
+          Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z0-9]*')
+        ]),
         password: new FormControl()
       }),
       howDidYouHear: new FormControl(),
+      frequency: new FormControl(null, [Validators.min(0), Validators.max(7)]),
       gender: new FormControl(),
       otherItems: new FormArray([])
     });
   }
 
-  isFieldState(field: string, state: string) {
-    const control = (this.myForm.controls.userData as FormGroup).controls[field];
+  getUserControl(field: string): FormControl {
+    return (this.myForm.controls.userData as FormGroup).controls[field] as FormControl;
+  }
+
+  getControl(field: string): FormControl {
+    return this.myForm.controls[field] as FormControl;
+  }
+
+  isUserFieldState(field: string, state: string) {
+    const control = this.getUserControl(field);
     return control.touched && control[state];
+  }
+
+  isFieldState(field: string, state: string) {
+    const control = this.getControl(field);
+    return control.touched && control[state];
+  }
+
+  hasUserError(field: string, errorType: string) {
+    const control = this.getUserControl(field);
+    return control.touched && control.hasError(errorType);
+  }
+
+  hasError(field: string, errorType: string) {
+    const control = this.getControl(field);
+    return control.touched && control.hasError(errorType);
   }
 
   onAddItem() {

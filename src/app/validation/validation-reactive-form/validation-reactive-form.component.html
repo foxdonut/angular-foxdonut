@@ -2,18 +2,23 @@
 
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
   <div formGroupName="userData">
-    <div class="form-group" [ngClass]="{ 'was-validated': isFieldState('email', 'valid') }">
+    <div class="form-group" [ngClass]="{ 'was-validated': isUserFieldState('email', 'valid') }">
       <label>Email</label>
       <input type="text" class="form-control" formControlName="email"
-        [ngClass]="{ 'is-invalid': isFieldState('email', 'invalid') }">
+        [ngClass]="{ 'is-invalid': isUserFieldState('email', 'invalid') }">
       <div class="invalid-feedback">Email is not valid.</div>
     </div>
 
-    <div class="form-group" [ngClass]="{ 'was-validated': isFieldState('username', 'valid') }">
+    <div class="form-group" [ngClass]="{ 'was-validated': isUserFieldState('username', 'valid') }">
       <label>Username <span class="text-danger">*</span></label>
       <input type="text" class="form-control" formControlName="username"
-        [ngClass]="{ 'is-invalid': isFieldState('username', 'invalid') }">
-      <div class="invalid-feedback">Username is required.</div>
+        [ngClass]="{ 'is-invalid': isUserFieldState('username', 'invalid') }">
+      <div [hidden]="!hasUserError('username', 'required')"
+        class="text-danger">Username is required.</div>
+      <div [hidden]="!hasUserError('username', 'minlength')"
+        class="text-danger">Username must be at least 3 characters.</div>
+      <div [hidden]="!hasUserError('username', 'pattern')"
+        class="text-danger">Please use only letters and numbers.</div>
     </div>
     <div>
       <button class="btn btn-primary btn-sm"
@@ -31,8 +36,17 @@
   <div class="form-group">
     <label>How did you hear about us?</label>
     <select class="form-control" formControlName="howDidYouHear">
+      <option value=""></option>
       <option *ngFor="let choice of choices">{{ choice }}</option>
     </select>
+  </div>
+
+  <div class="form-group">
+    <label>How many times a week will you use this site?</label>
+    <input type="number" class="form-control" formControlName="frequency"
+      [ngClass]="{ 'is-invalid': isFieldState('frequency', 'invalid') }">
+    <div [hidden]="!hasError('frequency', 'min') && !hasError('frequency', 'max')"
+      class="text-danger">Value must be between 0 and 7.</div>
   </div>
 
   <div class="radio" *ngFor="let gdr of genders">

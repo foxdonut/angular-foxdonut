@@ -22,6 +22,32 @@ username: new FormControl(null, Validators.required)
 email: new FormControl('default@me.com', Validators.email)
 ```
 
+## Minimum and Maximum Length
+
+The `minLength` and `maxLength` validators limit the length of input. For example:
+
+```javascript
+username: new FormControl(null, [Validators.required, Validators.minLength(3)])
+```
+
+## Using a Regular Expression with Pattern
+
+Use `pattern` to constrain the input to match a regular expression:
+
+```javascript
+username: new FormControl(null, [
+  Validators.required, Validators.minLength(3), Validators.pattern(/\w*/)
+])
+```
+
+## Minimum and Maximum Numerical Value
+
+Use `min` and `max` to validate a numerical value's minimum and maximum:
+
+```javascript
+frequency: new FormControl(null, [Validators.min(0), Validators.max(7)])
+```
+
 ## Marking Inputs as Invalid
 
 We can use the `ng-invalid` and `ng-touched` classes which Angular automatically adds to forms and

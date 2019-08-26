@@ -22,6 +22,24 @@ The `email` directive validates that a field value is a valid email:
 <input type="text" class="form-control" name="email" [ngModel]="'default@me.com'" email>
 ```
 
+## Minimum and Maximum Length
+
+The `minlength` and `maxlength` validators limit the length of input. For example:
+
+```html
+<input #username="ngModel" type="text" class="form-control" name="username"
+  ngModel required minlength="3">
+```
+
+## Using a Regular Expression with Pattern
+
+Use `pattern` to constrain the input to match a regular expression:
+
+```html
+<input #username="ngModel" type="text" class="form-control" name="username"
+  ngModel required minlength="3" pattern="\w*">
+```
+
 ## Marking Inputs as Invalid
 
 We can use the `ng-invalid` and `ng-touched` classes which Angular automatically adds to forms and
@@ -41,7 +59,7 @@ on the error message. As a toggle for `was-validated`, we add a `#reference` to 
 ```
 
 Bootstrap automatically displays the error message conditionally. To control that condition
-ourselves, we would use:
+ourselves, we could use:
 
 ```html
 <div *ngIf="username.touched && username.invalid">Username is required.</div>
@@ -53,6 +71,16 @@ class for when we are validating the field ourselves:
 ```html
 <input #email="ngModel" type="text" class="form-control" name="email"
   [ngModel]="'default@me.com'" email [ngClass]="{ 'is-invalid': email.invalid }">
+```
+
+We can also use `[hidden]` instead of `*ngIf` and `hasError` to conditionally show specific
+validation error messages:
+
+```html
+<div [hidden]="!username.hasError('required') || !username.touched"
+  class="text-danger">Username is required.</div>
+<div [hidden]="!username.hasError('minlength') || !username.touched"
+  class="text-danger">Username must be at least 3 characters.</div>
 ```
 
 ## Displaying a message after form submission
