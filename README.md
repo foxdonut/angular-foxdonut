@@ -14,3 +14,4 @@ Learning Angular.
 1. [Validation - Template-Driven Forms](docs/validation-template.md#angular-foxdonut)
 1. [Validation - Reactive Forms](docs/validation-reactive.md#angular-foxdonut)
 1. [Custom Validators](docs/custom-validators.md#angular-foxdonut)
+1. [Services](docs/services.md#angular-foxdonut)
