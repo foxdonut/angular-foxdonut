@@ -1,0 +1,16 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="form-group" [ngClass]="{ 'was-validated': isFieldState('username', 'valid') }">
+    <label>Username <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" formControlName="username"
+      [ngClass]="{ 'is-invalid': isFieldState('username', 'invalid') }">
+    <div [hidden]="!hasError('username', 'required')"
+      class="text-danger">Username is required.</div>
+    <div [hidden]="!hasError('username', 'usernameTaken')"
+      class="text-danger">That username is taken.</div>
+  </div>
+
+  <div class="form-group" style="margin-top: 8px">
+    <button type="submit" class="btn btn-primary btn-sm"
+      [disabled]="myForm.invalid">Submit Form</button>
+  </div>
+</form>

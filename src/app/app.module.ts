@@ -23,6 +23,9 @@ import { ValidationComponent } from './validation/validation.component';
 import { ValidationTemplateFormComponent } from './validation/validation-template-form/validation-template-form.component';
 import { ValidationReactiveFormComponent } from './validation/validation-reactive-form/validation-reactive-form.component';
 import { CustomValidatorsComponent } from './custom-validators/custom-validators.component';
+import { ServicesExampleComponent } from './services-example/services-example.component';
+import { UsernameFormComponent } from './services-example/username-form/username-form.component';
+import { UsernameLogComponent } from './services-example/username-log/username-log.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { CustomValidatorsComponent } from './custom-validators/custom-validators
     ValidationComponent,
     ValidationTemplateFormComponent,
     ValidationReactiveFormComponent,
-    CustomValidatorsComponent
+    CustomValidatorsComponent,
+    ServicesExampleComponent,
+    UsernameFormComponent,
+    UsernameLogComponent
   ],
   imports: [
     BrowserModule,

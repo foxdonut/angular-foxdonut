@@ -7,6 +7,7 @@ import { UsingDirectivesComponent } from './using-directives/using-directives.co
 import { FormsComponent } from './forms/forms.component';
 import { ValidationComponent } from './validation/validation.component';
 import { CustomValidatorsComponent } from './custom-validators/custom-validators.component';
+import { ServicesExampleComponent } from './services-example/services-example.component';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'using-directives', component: UsingDirectivesComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'validation', component: ValidationComponent },
-  { path: 'custom-validators', component: CustomValidatorsComponent }
+  { path: 'custom-validators', component: CustomValidatorsComponent },
+  { path: 'services', component: ServicesExampleComponent }
 ];
 
 @NgModule({
