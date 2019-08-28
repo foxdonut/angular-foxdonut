@@ -71,7 +71,7 @@ Components can call `this.myService.someEventEmitter.emit(data)` to emit an even
 Other components can use `this.myService.someEventEmitter.subscribe(data => ...)` to listen to
 events.
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/services?file=src%2Fapp%2Fservices%2Freactive-form%2Freactive-form.component.ts)
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/services?file=src%2Fapp%2Fservices%2Fusername.service.ts)
 
 [Contents](../README.md#angular-foxdonut)
 
