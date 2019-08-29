@@ -26,6 +26,7 @@ import { CustomValidatorsComponent } from './custom-validators/custom-validators
 import { ServicesExampleComponent } from './services-example/services-example.component';
 import { UsernameFormComponent } from './services-example/username-form/username-form.component';
 import { UsernameLogComponent } from './services-example/username-log/username-log.component';
+import { UsernameService } from './services/username.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,9 @@ import { UsernameLogComponent } from './services-example/username-log/username-l
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    UsernameService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

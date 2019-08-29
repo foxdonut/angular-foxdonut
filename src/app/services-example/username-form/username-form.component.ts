@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
-import { UsernameService } from 'src/app/services/username.service';
+import { UsernameService } from '../../services/username.service';
 
 @Component({
   selector: 'app-username-form',
@@ -10,7 +10,7 @@ import { UsernameService } from 'src/app/services/username.service';
 export class UsernameFormComponent implements OnInit {
   myForm: FormGroup;
 
-  constructor(private usernameService: UsernameService) { }
+  constructor(@Inject(UsernameService) private usernameService: UsernameService) { }
 
   ngOnInit() {
     this.myForm = new FormGroup({

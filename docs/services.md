@@ -54,6 +54,12 @@ export class UsernameService {
 `@Injectable({ providedIn: 'root' })` is the equivalent of having `UsernameService` in the
 `providers` array of `AppModule`.
 
+> For this to work on StackBlitz, the service is provided in `AppModule` and injected into
+> components with `@Inject`:
+> ```typescript
+> constructor(@Inject(UsernameService) private usernameService: UsernameService) { }
+> ```
+
 ## Injecting a service into another service
 
 A service that requires another service should be marked with `@Injectable()`, and use `constructor`
@@ -64,7 +70,8 @@ other services.
 ## Using a service for inter-component communication
 
 A service can have an `EventEmitter` property which components can use to emit events and other
-components can listen to and react to events.
+components can listen to and react to events. Because we need the same service instance for
+different components, the service must be provided at the `AppModule` level.
 
 Components can call `this.myService.someEventEmitter.emit(data)` to emit an event.
 

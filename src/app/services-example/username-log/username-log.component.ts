@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UsernameService } from 'src/app/services/username.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { UsernameService } from '../../services/username.service';
 
 @Component({
   selector: 'app-username-log',
@@ -9,7 +9,7 @@ import { UsernameService } from 'src/app/services/username.service';
 export class UsernameLogComponent implements OnInit {
   logs = [];
 
-  constructor(private usernameService: UsernameService) { }
+  constructor(@Inject(UsernameService) private usernameService: UsernameService) { }
 
   ngOnInit() {
     this.usernameService.usernameCreated.subscribe(username => {

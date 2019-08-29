@@ -1,8 +1,5 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class UsernameService {
   takenUsernames = ['tarzan', 'jane'];
   usernameCreated = new EventEmitter<string>();
