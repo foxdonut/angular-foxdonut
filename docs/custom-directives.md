@@ -145,7 +145,7 @@ Note that we are passing a string value here, but we can also bind to an express
 <p appBindingStyle [mouseenterColor]="getColor()">This is using appBindingStyle</p>
 ```
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/custom-directives?file=src%2Fapp%2Fdirectives%2Fbinding-style.directives.ts)
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/custom-directives?file=src%2Fapp%2Fdirectives%2Fbinding-style.directive.ts)
 
 ## Structural Directives
 
