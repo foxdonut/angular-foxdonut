@@ -8,6 +8,7 @@ import { FormsComponent } from './forms/forms.component';
 import { ValidationComponent } from './validation/validation.component';
 import { CustomValidatorsComponent } from './custom-validators/custom-validators.component';
 import { ServicesExampleComponent } from './services-example/services-example.component';
+import { CustomDirectivesComponent } from './custom-directives/custom-directives.component';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'forms', component: FormsComponent },
   { path: 'validation', component: ValidationComponent },
   { path: 'custom-validators', component: CustomValidatorsComponent },
-  { path: 'services', component: ServicesExampleComponent }
+  { path: 'services', component: ServicesExampleComponent },
+  { path: 'custom-directives', component: CustomDirectivesComponent }
 ];
 
 @NgModule({

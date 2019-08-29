@@ -27,6 +27,10 @@ import { ServicesExampleComponent } from './services-example/services-example.co
 import { UsernameFormComponent } from './services-example/username-form/username-form.component';
 import { UsernameLogComponent } from './services-example/username-log/username-log.component';
 import { UsernameService } from './services/username.service';
+import { CustomDirectivesComponent } from './custom-directives/custom-directives.component';
+import { BasicStyleDirective } from './directives/basic-style.directive';
+import { RendererStyleDirective } from './directives/renderer-style.directive';
+import { BindingStyleDirective } from './directives/binding-style.directive';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { UsernameService } from './services/username.service';
     CustomValidatorsComponent,
     ServicesExampleComponent,
     UsernameFormComponent,
-    UsernameLogComponent
+    UsernameLogComponent,
+    CustomDirectivesComponent,
+    BasicStyleDirective,
+    RendererStyleDirective,
+    BindingStyleDirective
   ],
   imports: [
     BrowserModule,

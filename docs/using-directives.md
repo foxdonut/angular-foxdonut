@@ -4,7 +4,7 @@
 
 # Using Directives
 
-Here we will look at `*ngIf`, `*ngFor`, `[ngStyle]`, and `[ngClass]`.
+Here we will look at `*ngIf`, `*ngFor`, `[ngStyle]`, `[ngClass]`, and `[ngSwitch]`.
 
 The `*` is required for _structural_ directive. Structural directives are responsible for HTML
 layout. They shape or reshape the DOM's structure, typically by adding, removing, or manipulating
@@ -71,12 +71,25 @@ The expressions may call methods on the component.
 
 ## `[ngClass]`
 
-The `[ngclass]` directive takes an object with class names as keys and boolean expressions as
+The `[ngClass]` directive takes an object with class names as keys and boolean expressions as
 values. The expressions may call methods on the component. If and only if the boolean expression
 results to a truthy value, the class is added to the element's class list.
 
 ```html
 <span [ngClass]="{low: counter <= 0, high: counter > 0}">{{ counter }}</span>
+```
+
+## `[ngSwitch]`
+
+If you find yourself having many `*ngIf`s, you can use `[ngSwitch]` instead. Bind to the value to
+switch on, and use `*ngSwitchCase` and `*ngSwitchDefault`:
+
+```html
+<div [ngSwitch]="value">
+  <div *ngSwitchCase="A">Value is A</div>
+  <div *ngSwitchCase="B">Value is B</div>
+  <div *ngSwitchDefault>Value is something else</div>
+</div>
 ```
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/using-directives?file=src%2Fapp%2Fusing-directives%2Fusing-directives.component.html)
