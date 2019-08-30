@@ -62,6 +62,8 @@ an element.
 
 > The selector should be camelCased, not `kebab-case`.
 
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/custom-directives?file=src%2Fapp%2Fdirectives%2Fbasic-style.directive.ts)
+
 ## Using the Renderer
 
 You can (and should) use the renderer instead to set the style:
@@ -97,6 +99,8 @@ This listens to events on the element, but you can also listen outside by using
 `@HostListener('document:eventName')`. Note that **all** elements using the directive will be
 notified, so you may want to use `this.elementRef.nativeElement.contains(event.target)` to determine
 if the event occured on the element or somewhere else.
+
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/custom-directives?file=src%2Fapp%2Fdirectives%2Frenderer-style.directive.ts)
 
 ## Binding to properties
 

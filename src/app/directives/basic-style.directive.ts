@@ -1,11 +1,12 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { Directive, ElementRef, Inject, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appBasicStyle]'
 })
 export class BasicStyleDirective implements OnInit {
 
-  constructor(private elementRef: ElementRef) { }
+  // @Inject is only for StackBlitz
+  constructor(@Inject(ElementRef) private elementRef: ElementRef) { }
 
   ngOnInit() {
     this.elementRef.nativeElement.style.color = 'orange';

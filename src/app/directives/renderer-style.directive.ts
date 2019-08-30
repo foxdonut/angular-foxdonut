@@ -1,11 +1,13 @@
-import { Directive, ElementRef, OnInit, Renderer2, HostListener } from '@angular/core';
+import { Directive, ElementRef, Inject, OnInit, Renderer2, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appRendererStyle]'
 })
 export class RendererStyleDirective implements OnInit {
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
+  // @Inject is only for StackBlitz
+  constructor(@Inject(ElementRef) private elementRef: ElementRef,
+              @Inject(Renderer2) private renderer: Renderer2) { }
 
   ngOnInit() {
     this.renderer.setStyle(this.elementRef.nativeElement, 'background-color',  'orange');
