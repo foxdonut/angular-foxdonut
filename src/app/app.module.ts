@@ -31,6 +31,8 @@ import { CustomDirectivesComponent } from './custom-directives/custom-directives
 import { BasicStyleDirective } from './directives/basic-style.directive';
 import { RendererStyleDirective } from './directives/renderer-style.directive';
 import { BindingStyleDirective } from './directives/binding-style.directive';
+import { ComponentCommunicationComponent } from './component-communication/component-communication.component';
+import { UserComponent } from './component-communication/user/user.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { BindingStyleDirective } from './directives/binding-style.directive';
     CustomDirectivesComponent,
     BasicStyleDirective,
     RendererStyleDirective,
-    BindingStyleDirective
+    BindingStyleDirective,
+    ComponentCommunicationComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

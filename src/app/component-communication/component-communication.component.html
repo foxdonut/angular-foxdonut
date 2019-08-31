@@ -1,0 +1,18 @@
+<h4>component communication</h4>
+
+<input type="text" #myInput>
+<button (click)="onAddItem(myInput)" class="btn btn-primary btn-sm">Add Item</button>
+<div>items:</div>
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<div>users:</div>
+<ul>
+  <li *ngFor="let user of users">{{ user.id }} {{ user.username }}</li>
+</ul>
+
+<div>edit users:</div>
+<app-user *ngFor="let user of users" [my-user]="user" (edit-user)="onEditUser($event)">
+  <span>This is template content, there are {{ users.length }} users.</span>
+</app-user>
