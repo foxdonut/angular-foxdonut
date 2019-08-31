@@ -16,4 +16,4 @@ Learning Angular.
 1. [Custom Validators](docs/custom-validators.md#angular-foxdonut)
 1. [Services](docs/services.md#angular-foxdonut)
 1. [Custom Directives](docs/custom-directives.md#angular-foxdonut)
-1. [Component Communcation](docs/component-communication.md#angular-foxdonut)
+1. [Component Communication](docs/component-communication.md#angular-foxdonut)
