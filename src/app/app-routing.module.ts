@@ -10,6 +10,7 @@ import { CustomValidatorsComponent } from './custom-validators/custom-validators
 import { ServicesExampleComponent } from './services-example/services-example.component';
 import { CustomDirectivesComponent } from './custom-directives/custom-directives.component';
 import { ComponentCommunicationComponent } from './component-communication/component-communication.component';
+import { PipeDemoComponent } from './pipes/pipe-demo/pipe-demo.component';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'custom-validators', component: CustomValidatorsComponent },
   { path: 'services', component: ServicesExampleComponent },
   { path: 'custom-directives', component: CustomDirectivesComponent },
-  { path: 'component-communication', component: ComponentCommunicationComponent }
+  { path: 'component-communication', component: ComponentCommunicationComponent },
+  { path: 'pipes', component: PipeDemoComponent }
 ];
 
 @NgModule({

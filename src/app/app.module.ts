@@ -33,6 +33,8 @@ import { RendererStyleDirective } from './directives/renderer-style.directive';
 import { BindingStyleDirective } from './directives/binding-style.directive';
 import { ComponentCommunicationComponent } from './component-communication/component-communication.component';
 import { UserComponent } from './component-communication/user/user.component';
+import { PhoneNumberPipe } from './pipes/phone-number.pipe';
+import { PipeDemoComponent } from './pipes/pipe-demo/pipe-demo.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { UserComponent } from './component-communication/user/user.component';
     RendererStyleDirective,
     BindingStyleDirective,
     ComponentCommunicationComponent,
-    UserComponent
+    UserComponent,
+    PhoneNumberPipe,
+    PipeDemoComponent
   ],
   imports: [
     BrowserModule,

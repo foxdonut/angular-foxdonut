@@ -1,0 +1,13 @@
+<h4>pipes</h4>
+
+<div><code>currency</code>: {{ 34.567 | currency }}</div>
+<div><code>date</code>: {{ now() | date }} </div>
+<div><code>number</code>: {{ 345.6789 | number:'1.1-2' }} {{ 2 | number:'1.1-2' }} {{ 1.2 | number: '2.2-2' }}</div>
+<div><code>percent</code>: {{ 0.18 | percent }}</div>
+<div><code>lowercase</code>: {{ 'Duck' | lowercase }}</div>
+<div><code>uppercase</code>: {{ 'Duck' | uppercase }}</div>
+<div><code>slice</code>: {{ ['a','b','c','d'] | slice:1:3 | json }}</div>
+<div><code>json</code>: {{ {duck:'quack'} | json }} </div>
+
+<div>Phone number (dashes): {{ '8005551234' | phoneNumber : 'dashes' }}</div>
+<div>Phone number (default): {{ '8005551234' | phoneNumber }}</div>

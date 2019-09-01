@@ -17,3 +17,4 @@ Learning Angular.
 1. [Services](docs/services.md#angular-foxdonut)
 1. [Custom Directives](docs/custom-directives.md#angular-foxdonut)
 1. [Component Communication](docs/component-communication.md#angular-foxdonut)
+1. [Pipes](docs/pipes.md#angular-foxdonut)
