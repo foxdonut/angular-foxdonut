@@ -35,7 +35,7 @@ Some of the built-in pipes include:
 A complete list of built-in pipes is available in the
 [documentation](https://angular.io/api?type=pipe).
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/pipes?file=src%2Fapp%2Fpipes%2Fpipe-demo%2Fpipe-demo.component.ts)
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/pipes?file=src%2Fapp%2Fpipes%2Fpipe-demo%2Fpipe-demo.component.html)
 
 ## Custom Pipes
 
