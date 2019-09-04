@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationErrors, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable, Observer } from 'rxjs';
 
 @Component({
-  selector: 'app-custom-validators',
-  templateUrl: './custom-validators.component.html',
+  selector: 'app-observables',
+  templateUrl: './observables.component.html',
   styles: []
 })
-export class CustomValidatorsComponent implements OnInit {
+export class ObservablesComponent implements OnInit {
   myForm: FormGroup;
   takenUsernames = ['tarzan', 'jane'];
   takenEmails = ['tarzan@jungle.com', 'jane@jungle.com'];
@@ -30,13 +31,15 @@ export class CustomValidatorsComponent implements OnInit {
     return null;
   }
 
-  emailAvailable(control: FormControl): Promise<ValidationErrors | null> {
-    return new Promise((resolve, reject) => {
+  emailAvailable(control: FormControl): Observable<ValidationErrors | null> {
+    return Observable.create((observer: Observer<ValidationErrors | null>) => {
       setTimeout(() => {
         if (this.takenEmails.indexOf(control.value) >= 0) {
-          resolve({ emailTaken: true });
+          observer.next({ emailTaken: true });
+          observer.complete();
         } else {
-          resolve(null);
+          observer.next(null);
+          observer.complete();
         }
       }, 2000);
     });

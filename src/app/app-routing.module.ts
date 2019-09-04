@@ -11,6 +11,7 @@ import { ServicesExampleComponent } from './services-example/services-example.co
 import { CustomDirectivesComponent } from './custom-directives/custom-directives.component';
 import { ComponentCommunicationComponent } from './component-communication/component-communication.component';
 import { PipeDemoComponent } from './pipes/pipe-demo/pipe-demo.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'services', component: ServicesExampleComponent },
   { path: 'custom-directives', component: CustomDirectivesComponent },
   { path: 'component-communication', component: ComponentCommunicationComponent },
-  { path: 'pipes', component: PipeDemoComponent }
+  { path: 'pipes', component: PipeDemoComponent },
+  { path: 'observables', component: ObservablesComponent }
 ];
 
 @NgModule({

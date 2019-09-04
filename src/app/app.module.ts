@@ -35,6 +35,7 @@ import { ComponentCommunicationComponent } from './component-communication/compo
 import { UserComponent } from './component-communication/user/user.component';
 import { PhoneNumberPipe } from './pipes/phone-number.pipe';
 import { PipeDemoComponent } from './pipes/pipe-demo/pipe-demo.component';
+import { ObservablesComponent } from './observables/observables.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { PipeDemoComponent } from './pipes/pipe-demo/pipe-demo.component';
     ComponentCommunicationComponent,
     UserComponent,
     PhoneNumberPipe,
-    PipeDemoComponent
+    PipeDemoComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
