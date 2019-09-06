@@ -19,3 +19,6 @@ Learning Angular.
 1. [Component Communication](docs/component-communication.md#angular-foxdonut)
 1. [Pipes](docs/pipes.md#angular-foxdonut)
 1. [Observables](docs/observables.md#angular-foxdonut)
+1. [HTTP Requests](docs/http-requests.md#angular-foxdonut)
+1. [Routing](docs/routing.md#angular-foxdonut)
+

@@ -1,0 +1,13 @@
+<h4>http-requests</h4>
+
+<div *ngIf="loading">
+  Loading...
+</div>
+<div *ngIf="error">
+  Sorry, something went wrong.
+</div>
+<div *ngFor="let article of articles" class="article">
+  <div class="title">{{ article.title }}</div>
+  <div class="author">{{ article.author.username }}</div>
+  <div class="date">{{ article.createdAt | date }}</div>
+</div>

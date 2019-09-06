@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // this should only be needed for stackblitz
 import 'bootstrap';
@@ -36,6 +37,8 @@ import { UserComponent } from './component-communication/user/user.component';
 import { PhoneNumberPipe } from './pipes/phone-number.pipe';
 import { PipeDemoComponent } from './pipes/pipe-demo/pipe-demo.component';
 import { ObservablesComponent } from './observables/observables.component';
+import { HttpRequestsComponent } from './http-requests/http-requests.component';
+import { LoggingInterceptorService } from './http-requests/logging-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -65,16 +68,19 @@ import { ObservablesComponent } from './observables/observables.component';
     UserComponent,
     PhoneNumberPipe,
     PipeDemoComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    HttpRequestsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    UsernameService
+    UsernameService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

@@ -66,4 +66,6 @@ To add a link:
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/basic?file=src%2Fapp%2Fapp-routing.module.ts)
 
+Later we will look at [Routing](routing.md#angular-foxdonut) in more detail.
+
 [Contents](../README.md#angular-foxdonut)
