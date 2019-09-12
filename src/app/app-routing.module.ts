@@ -13,6 +13,12 @@ import { ComponentCommunicationComponent } from './component-communication/compo
 import { PipeDemoComponent } from './pipes/pipe-demo/pipe-demo.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { HttpRequestsComponent } from './http-requests/http-requests.component';
+import { RoutingComponent } from './routing/routing.component';
+import { RoutingAboutComponent } from './routing/routing-about/routing-about.component';
+import { RoutingUsersComponent } from './routing/routing-users/routing-users.component';
+import { RoutingUserComponent } from './routing/routing-user/routing-user.component';
+import { UserGuardService } from './routing/user-guard.service';
+import { UserResolveService } from './routing/user-resolve.service';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
@@ -27,7 +33,14 @@ const routes: Routes = [
   { path: 'component-communication', component: ComponentCommunicationComponent },
   { path: 'pipes', component: PipeDemoComponent },
   { path: 'observables', component: ObservablesComponent },
-  { path: 'http-requests', component: HttpRequestsComponent }
+  { path: 'http-requests', component: HttpRequestsComponent },
+  { path: 'routing', component: RoutingComponent, children: [
+    { path: '', component: RoutingAboutComponent },
+    { path: 'users/:id', component: RoutingUserComponent,
+      canActivate: [UserGuardService], resolve: { user: UserResolveService } },
+    { path: 'users', component: RoutingUsersComponent }
+  ] },
+  { path: '**', redirectTo: '/hello' }
 ];
 
 @NgModule({

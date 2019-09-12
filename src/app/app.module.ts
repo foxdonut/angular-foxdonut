@@ -39,6 +39,11 @@ import { PipeDemoComponent } from './pipes/pipe-demo/pipe-demo.component';
 import { ObservablesComponent } from './observables/observables.component';
 import { HttpRequestsComponent } from './http-requests/http-requests.component';
 import { LoggingInterceptorService } from './http-requests/logging-interceptor.service';
+import { RoutingComponent } from './routing/routing.component';
+import { RoutingUsersComponent } from './routing/routing-users/routing-users.component';
+import { RoutingUserComponent } from './routing/routing-user/routing-user.component';
+import { RoutingAboutComponent } from './routing/routing-about/routing-about.component';
+import { UserGuardService } from './routing/user-guard.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +74,11 @@ import { LoggingInterceptorService } from './http-requests/logging-interceptor.s
     PhoneNumberPipe,
     PipeDemoComponent,
     ObservablesComponent,
-    HttpRequestsComponent
+    HttpRequestsComponent,
+    RoutingComponent,
+    RoutingUsersComponent,
+    RoutingUserComponent,
+    RoutingAboutComponent
   ],
   imports: [
     BrowserModule,

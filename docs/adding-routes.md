@@ -10,7 +10,7 @@ Create the file `src/app/app-routing.module.ts`.
 
 ## Configure `AppRoutingModule`
 
-```javascript
+```typescript
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HelloComponent } from './component/hello/hello.component';
@@ -30,11 +30,17 @@ export class AppRoutingModule {
 
 &rarr; Note that we'll create `HelloComponent` in [Creating Components](creating-components.md).
 
+By default, routing does not use the hash in URL paths. We can use the hash with `useHash`:
+
+```typescript
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+```
+
 ## Import `AppRoutingModule`
 
 Import `AppRoutingModule` in `AppModule` by adding it in `app.module.ts`:
 
-```javascript
+```typescript
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({

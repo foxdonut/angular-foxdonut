@@ -1,0 +1,10 @@
+<p>routing-users</p>
+
+<div *ngIf="message">{{ message }}</div>
+<div *ngIf="loading">{{ loading }}</div>
+
+<ul>
+  <li *ngFor="let user of users">
+    <a [routerLink]="['./', user.id]">{{ user.name }}</a>
+  </li>
+</ul>

@@ -1,0 +1,12 @@
+<h4>routing</h4>
+
+<div>
+  <a
+    [routerLink]="['.']"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">About</a>
+  |
+  <a [routerLink]="['users']" routerLinkActive="active">Users</a>
+</div>
+
+<router-outlet></router-outlet>
