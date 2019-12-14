@@ -129,7 +129,7 @@ export class CounterComponent implements OnInit {
   counter$: Observable<number>;
 
   constructor(private store: Store<State>) {
-    this.counter$ = store.pipe(select('counter'));
+    this.counter$ = store.pipe(select(state => state.counter));
   }
 }
 ```
