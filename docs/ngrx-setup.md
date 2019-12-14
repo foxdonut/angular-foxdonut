@@ -71,10 +71,9 @@ export interface State {
 Create actions in `counter/counter.actions.ts`:
 
 ```typescript
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const increment = createAction('[Counter] Increment');
-export const decrement = createAction('[Counter] Decrement');
+export const increment = createAction('[Counter] Increment', props<{ amount: number }>());
 export const reset = createAction('[Counter] Reset');
 ```
 
@@ -85,13 +84,12 @@ the state only, `counter`, without having to know about it.
 
 ```typescript
 import { createReducer, on } from '@ngrx/store';
-import { increment, decrement, reset } from './counter.actions';
+import { increment, reset } from './counter.actions';
 
 export const initialState = 0;
 
 const counterReducerFn = createReducer(initialState,
-  on(increment, state => state + 1),
-  on(decrement, state => state - 1),
+  on(increment, (state, { amount }) => state + amount),
   on(reset, state => 0),
 );
 
@@ -102,7 +100,17 @@ export function counterReducer(state, action) {
 
 ## Setup Reducers
 
-## Creating the Component
+To setup the reducer, indicate the state property on which it operates in `reducers/index.ts`:
+
+```typescript
+import { counterReducer } from '../counter/counter.reducer';
+
+export const reducers: ActionReducerMap<State> = {
+  counter: counterReducer
+};
+```
+
+## Using the Store in a Component
 
 Create the `counter` component:
 
@@ -110,7 +118,54 @@ Create the `counter` component:
 ng g c counter
 ```
 
+To use the Store in the component, import `Store` and `select` from NgRx to select the property from
+the store. Inject the Store in the constructor, and set up an Observable using `store.pipe` and
+`select`:
+
+```typescript
+import { Store, select } from '@ngrx/store';
+
+export class CounterComponent implements OnInit {
+  counter$: Observable<number>;
+
+  constructor(private store: Store<State>) {
+    this.counter$ = store.pipe(select('counter'));
+  }
+}
+```
+
+Add the actions using `store.dispatch`:
+
+```typescript
+import { increment, reset } from './counter.actions';
+
+export class CounterComponent implements OnInit {
+  increment() {
+    this.store.dispatch(increment({ amount: 1 }));
+  }
+
+  decrement() {
+    this.store.dispatch(increment({ amount: -1 }));
+  }
+
+  reset() {
+    this.store.dispatch(reset());
+  }
+}
+```
+
+Use the actions as regular component methods in the template, and use `counter$` with `| async`:
+
+```html
+<div>Counter: {{ counter$ | async }}
+
+<div>
+  <button class="btn btn-primary btn-sm" (click)="increment()">Increment</button>
+  <button class="btn btn-primary btn-sm" (click)="decrement()">Decrement</button>
+  <button class="btn btn-danger btn-sm" (click)="reset()">Reset</button>
+</div>
+```
+
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/ngrx-setup?file=src%2Fapp%2Fservices%2Fusername.service.ts)
 
 [Contents](../README.md#angular-foxdonut)
-

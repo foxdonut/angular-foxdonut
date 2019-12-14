@@ -19,6 +19,7 @@ import { RoutingUsersComponent } from './routing/routing-users/routing-users.com
 import { RoutingUserComponent } from './routing/routing-user/routing-user.component';
 import { UserGuardService } from './routing/user-guard.service';
 import { UserResolveService } from './routing/user-resolve.service';
+import { CounterComponent } from './counter/counter.component';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
@@ -40,6 +41,7 @@ const routes: Routes = [
       canActivate: [UserGuardService], resolve: { user: UserResolveService } },
     { path: 'users', component: RoutingUsersComponent }
   ] },
+  { path: 'ngrx', component: CounterComponent },
   { path: '**', redirectTo: '/hello' }
 ];
 
