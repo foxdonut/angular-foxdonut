@@ -44,6 +44,9 @@ import { RoutingUsersComponent } from './routing/routing-users/routing-users.com
 import { RoutingUserComponent } from './routing/routing-user/routing-user.component';
 import { RoutingAboutComponent } from './routing/routing-about/routing-about.component';
 import { UserGuardService } from './routing/user-guard.service';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { CounterComponent } from './counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -78,14 +81,22 @@ import { UserGuardService } from './routing/user-guard.service';
     RoutingComponent,
     RoutingUsersComponent,
     RoutingUserComponent,
-    RoutingAboutComponent
+    RoutingAboutComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    })
   ],
   providers: [
     UsernameService,

@@ -21,4 +21,4 @@ Learning Angular.
 1. [Observables](docs/observables.md#angular-foxdonut)
 1. [HTTP Requests](docs/http-requests.md#angular-foxdonut)
 1. [Routing](docs/routing.md#angular-foxdonut)
-
+1. [NgRx Setup](docs/ngrx-setup.md#angular-foxdonut)
