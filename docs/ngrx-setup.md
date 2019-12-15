@@ -166,6 +166,8 @@ Use the actions as regular component methods in the template, and use `counter$`
 </div>
 ```
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/ngrx-setup?file=src%2Fapp%2Fservices%2Fusername.service.ts)
+> For better separation of concerns, use a Service. See the example below.
+
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/ngrx-setup?file=src%2Fapp%2Fcounter%2Fcounter.service.ts)
 
 [Contents](../README.md#angular-foxdonut)

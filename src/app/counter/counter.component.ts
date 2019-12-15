@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { State } from '../reducers';
 import { increment, reset } from './counter.actions';
+import { CounterService } from './counter.service';
 
 @Component({
   selector: 'app-counter',
@@ -15,22 +16,22 @@ import { increment, reset } from './counter.actions';
 export class CounterComponent implements OnInit {
   counter$: Observable<number>;
 
-  constructor(private store: Store<State>) {
-    this.counter$ = store.pipe(select(state => state.counter));
+  constructor(private counterService: CounterService) {
+    this.counter$ = counterService.counter$;
   }
 
   ngOnInit() {
   }
 
   increment() {
-    this.store.dispatch(increment({ amount: 1 }));
+    this.counterService.increment();
   }
 
   decrement() {
-    this.store.dispatch(increment({ amount: -1 }));
+    this.counterService.decrement();
   }
 
   reset() {
-    this.store.dispatch(reset());
+    this.counterService.reset();
   }
 }
