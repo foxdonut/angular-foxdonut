@@ -12,6 +12,7 @@ Install the NgRx package and add it to the Angular project:
 
 ```
 ng add @ngrx/store
+ng add @ngrx/effects
 ```
 
 This adds NgRx's `StoreModule` to `app.module.ts`:
@@ -53,6 +54,12 @@ export const reducers: ActionReducerMap<State> = {
 
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+```
+
+Next, to add NgRX CLI support, add `schematics` to the project:
+
+```
+ng add @ngrx/schematics
 ```
 
 ## Defining State

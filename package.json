@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+    "@ngrx/effects": "^8.5.2",
+    "@ngrx/schematics": "^8.5.2",
     "@ngrx/store": "^8.5.2",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",

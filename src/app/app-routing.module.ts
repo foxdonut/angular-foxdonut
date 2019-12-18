@@ -42,7 +42,8 @@ const routes: Routes = [
     { path: 'users', component: RoutingUsersComponent }
   ] },
   { path: 'ngrx', component: CounterComponent },
-  { path: '**', redirectTo: '/hello' }
+  { path: '**', redirectTo: '/hello' },
+  { path: 'mod3', loadChildren: () => import('./module3/module3.module').then(m => m.Module3Module) }
 ];
 
 @NgModule({

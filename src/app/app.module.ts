@@ -47,6 +47,8 @@ import { UserGuardService } from './routing/user-guard.service';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { CounterComponent } from './counter/counter.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -96,7 +98,8 @@ import { CounterComponent } from './counter/counter.component';
         strictStateImmutability: true,
         strictActionImmutability: true
       }
-    })
+    }),
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [
     UsernameService,
