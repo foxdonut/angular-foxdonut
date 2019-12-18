@@ -7,3 +7,5 @@
   <button class="btn btn-primary btn-sm" (click)="decrement()">Decrement</button>
   <button class="btn btn-danger btn-sm" (click)="reset()">Reset</button>
 </div>
+
+<div>State: {{ state$ | async | json }}</div>

@@ -10,9 +10,11 @@ import { increment, reset } from './counter.actions';
 })
 export class CounterService {
   counter$: Observable<number>;
+  state$: Observable<State>;
 
   constructor(private store: Store<State>) {
     this.counter$ = store.pipe(select(state => state.counter));
+    this.state$ = store;
   }
 
   increment() {

@@ -15,9 +15,11 @@ import { CounterService } from './counter.service';
 })
 export class CounterComponent implements OnInit {
   counter$: Observable<number>;
+  state$: Observable<State>;
 
   constructor(private counterService: CounterService) {
     this.counter$ = counterService.counter$;
+    this.state$ = counterService.state$;
   }
 
   ngOnInit() {

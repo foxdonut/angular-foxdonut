@@ -234,26 +234,26 @@ We'll create three feature modules:
 - Car
 - WishList
 
-
 With NgRx Schematics installed (see [NgRx Setup](ngrx-setup.md)), we can use the CLI to generate
 stores and features:
 
 ```
 ng g m budget
+ng g store budget/Budget -m budget.module.ts
+ng g reducer budget/carClass -r reducers/index.ts -c true --flat false -a false --spec false
+ng g reducer budget/carType -r reducers/index.ts -c true --flat false -a false --spec false
 
 ng g m car
 ng g store car/Car -m car.module.ts
-ng g feature Car -m car/car.module.ts -c true -r car/reducers/index.ts --flat false -a false --spec false
+ng g reducer car/make -r reducers/index.ts -c true --flat false -a false --spec false
+ng g reducer car/model -r reducers/index.ts -c true --flat false -a false --spec false
 
 ng g m wishList
+ng g store wish-list/WishList -m wish-list.module.ts
 ```
 
-We can also use the CLI to generate reducers:
-
-```
-ng g reducer Budget -m budget/budget.module.ts -r budget/reducers/index.ts --flat false --spec false
-ng g reducer Car -m car/car.module.ts -c true -a false --flat false --spec false
-```
+Then we add the modules to `app.module.ts` by importing `BudgetModule`, `CarModule` and
+`WishListModule` and adding them to `imports`.
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/modules-and-features?file=src%2Fapp%2Fcounter%2Fcounter.service.ts)
 

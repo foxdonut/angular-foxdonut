@@ -49,6 +49,9 @@ import { reducers, metaReducers } from './reducers';
 import { CounterComponent } from './counter/counter.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+import { CarModule } from './car/car.module';
+import { BudgetModule } from './budget/budget.module';
+import { WishListModule } from './wish-list/wish-list.module';
 
 @NgModule({
   declarations: [
@@ -99,7 +102,10 @@ import { AppEffects } from './app.effects';
         strictActionImmutability: true
       }
     }),
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
+    BudgetModule,
+    CarModule,
+    WishListModule
   ],
   providers: [
     UsernameService,
