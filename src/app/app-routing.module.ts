@@ -20,6 +20,7 @@ import { RoutingUserComponent } from './routing/routing-user/routing-user.compon
 import { UserGuardService } from './routing/user-guard.service';
 import { UserResolveService } from './routing/user-resolve.service';
 import { CounterComponent } from './counter/counter.component';
+import { CarAppComponent } from './car-app/car-app.component';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
@@ -42,8 +43,9 @@ const routes: Routes = [
     { path: 'users', component: RoutingUsersComponent }
   ] },
   { path: 'ngrx', component: CounterComponent },
-  { path: '**', redirectTo: '/hello' },
-  { path: 'mod3', loadChildren: () => import('./module3/module3.module').then(m => m.Module3Module) }
+  { path: 'mod3', loadChildren: () => import('./module3/module3.module').then(m => m.Module3Module) },
+  { path: 'car-app', component: CarAppComponent },
+  { path: '**', redirectTo: '/hello' }
 ];
 
 @NgModule({

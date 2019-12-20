@@ -1,20 +1,23 @@
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
-} from '@ngrx/store';
-import { environment } from '../../environments/environment';
+// import { counterReducer } from '../counter/counter.reducer';
 
-import { counterReducer } from '../counter/counter.reducer';
+import * as fromBudget from '../budget/reducers';
+import * as fromCar from '../car/reducers';
+import * as fromWishList from '../wish-list/reducers';
 
 export interface State {
-  counter: number;
+  // counter: number;
+  [fromBudget.budgetFeatureKey]: fromBudget.State;
+  [fromCar.carFeatureKey]: fromCar.State;
+  [fromWishList.wishListFeatureKey]: fromWishList.State;
 }
 
+/*
 export const reducers: ActionReducerMap<State> = {
-  counter: counterReducer
+  counter: counterReducer,
+  [fromBudget.budgetFeatureKey]: fromBudget.State;
+  [fromCar.carFeatureKey]: fromCar.State;
+  [fromWishList.wishListFeatureKey]: fromWishList.State;
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+*/

@@ -1,0 +1,17 @@
+<form [formGroup]="budgetForm">
+  <div>
+    Select a car class:
+  </div>
+  <select formControlName="carClass">
+    <option value="">-- Choose --</option>
+    <option *ngFor="let carClass of carClasses" [ngValue]="carClass.id">{{ carClass.label }}</option>
+  </select>
+
+  <div>
+    Select a car type:
+  </div>
+  <select formControlName="carType">
+    <option value="">-- Choose --</option>
+    <option *ngFor="let carType of carTypes" [ngValue]="carType.id">{{ carType.label }}</option>
+  </select>
+</form>

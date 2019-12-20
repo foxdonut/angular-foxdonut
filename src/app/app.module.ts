@@ -45,13 +45,14 @@ import { RoutingUserComponent } from './routing/routing-user/routing-user.compon
 import { RoutingAboutComponent } from './routing/routing-about/routing-about.component';
 import { UserGuardService } from './routing/user-guard.service';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+// import { reducers, metaReducers } from './reducers';
 import { CounterComponent } from './counter/counter.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { CarModule } from './car/car.module';
 import { BudgetModule } from './budget/budget.module';
 import { WishListModule } from './wish-list/wish-list.module';
+import { CarAppComponent } from './car-app/car-app.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { WishListModule } from './wish-list/wish-list.module';
     RoutingUsersComponent,
     RoutingUserComponent,
     RoutingAboutComponent,
-    CounterComponent
+    CounterComponent,
+    CarAppComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +97,8 @@ import { WishListModule } from './wish-list/wish-list.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot({}),
+    /*
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
@@ -102,6 +106,7 @@ import { WishListModule } from './wish-list/wish-list.module';
         strictActionImmutability: true
       }
     }),
+    */
     EffectsModule.forRoot([AppEffects]),
     BudgetModule,
     CarModule,

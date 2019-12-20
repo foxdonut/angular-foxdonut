@@ -177,7 +177,7 @@ Now, when working with modules, specify `--module=<name>` to add to a module. Al
 directory so that the files are grouped by module. For example:
 
 ```
-ng g c module1/something --module=module1
+ng g c module1/something -m module1
 ```
 
 Use modules to separate features in the app. Also, have shared modules that can be imported by other
@@ -254,6 +254,23 @@ ng g store wish-list/WishList -m wish-list.module.ts
 
 Then we add the modules to `app.module.ts` by importing `BudgetModule`, `CarModule` and
 `WishListModule` and adding them to `imports`.
+
+Let's create some components:
+
+```
+ng g c budget/budget -m budget
+ng g c car/car -m car
+ng g c wish-list/wish-list -m wish-list
+```
+
+> For components that we want to use in other modules, we need to add them to `exports`.
+
+We can generate actions files with:
+
+```
+ng g action budget/car-class -c true --flat false -a false --spec false
+ng g action budget/car-type -c true --flat false -a false --spec false
+```
 
 ## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/modules-and-features?file=src%2Fapp%2Fcounter%2Fcounter.service.ts)
 
