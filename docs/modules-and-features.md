@@ -272,6 +272,6 @@ ng g action budget/car-class -c true --flat false -a false --spec false
 ng g action budget/car-type -c true --flat false -a false --spec false
 ```
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/modules-and-features?file=src%2Fapp%2Fcounter%2Fcounter.service.ts)
+## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/modules-and-features?file=src%2Fapp%2Fcar%2Favailable-makes/available-makes.reducer.ts)
 
 [Contents](../README.md#angular-foxdonut)

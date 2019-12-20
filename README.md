@@ -23,3 +23,4 @@ Learning Angular.
 1. [Routing](docs/routing.md#angular-foxdonut)
 1. [NgRx Setup](docs/ngrx-setup.md#angular-foxdonut)
 1. [Modules and Features](docs/modules-and-features.md#angular-foxdonut)
+1. [NgRx Entity](docs/ngrx-entity.md#angular-foxdonut)
