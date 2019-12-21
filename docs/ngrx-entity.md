@@ -4,6 +4,10 @@
 
 # NgRx Entity
 
+> NgRx Data reduces boilerplate even more, so know that it may be the preferable choice.
+> Nevertheless, NgRx Data uses NgRx Entity, so it's good to have an idea of what's involved with
+> NgRx Entity.
+
 To manage entities, `@ngrx/entity` provides an API that reduces boilerplate and gives us support for
 common CRUD operations.
 
