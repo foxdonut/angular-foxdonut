@@ -1,7 +1,15 @@
 <div>Car Selection</div>
 
 <button
-  *ngFor="let make of availableMakes | async"
-  class="btn btn-default"
+  *ngFor="let make of (availableMakes | async)"
+  class="btn"
+  [ngClass]="{ 'btn-primary': make === (selectedMake | async), 'btn-default': make !== (selectedMake | async) }"
   (click)="onSelectMake(make)">{{ make }}</button>
 
+
+<div *ngIf="availableModels">
+  <button
+    *ngFor="let model of (availableModels | async)"
+    class="btn btn-default"
+    (click)="onSelectModel(model)">{{ model }}</button>
+</div>

@@ -8,6 +8,7 @@ import {
 
 export const wishListFeatureKey = 'wishList';
 
+// tslint:disable-next-line:no-empty-interface
 export interface State {
 }
 

@@ -2,6 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 
 export const modelFeatureKey = 'model';
 
+// tslint:disable-next-line:no-empty-interface
 export interface State {
 }
 
