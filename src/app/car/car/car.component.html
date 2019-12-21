@@ -1,3 +1,7 @@
 <div>Car Selection</div>
 
-<button *ngFor="let make of availableMakes | async" class="btn btn-default">{{ make }}</button>
+<button
+  *ngFor="let make of availableMakes | async"
+  class="btn btn-default"
+  (click)="onSelectMake(make)">{{ make }}</button>
+
