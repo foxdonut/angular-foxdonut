@@ -7,6 +7,7 @@ import { State as CarState } from 'src/app/car/reducers';
 
 import * as fromCar from '../reducers';
 import { selectCarMake } from '../make/make.actions';
+import { selectCarModel } from '../model/model.actions';
 
 @Component({
   selector: 'app-car',
@@ -15,6 +16,7 @@ import { selectCarMake } from '../make/make.actions';
 })
 export class CarComponent implements OnInit {
   state$: Observable<CarState>;
+  selectedOptions: Record<string, boolean> = {};
 
   constructor(private store: Store<State>) { }
 
@@ -27,5 +29,6 @@ export class CarComponent implements OnInit {
   }
 
   onSelectModel(model: string) {
+    this.store.dispatch(selectCarModel({ model }));
   }
 }

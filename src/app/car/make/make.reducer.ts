@@ -4,7 +4,6 @@ import { selectCarMake } from './make.actions';
 
 export const makeFeatureKey = 'make';
 
-// tslint:disable-next-line:no-empty-interface
 export type State = string;
 
 export const initialState: State = '';
