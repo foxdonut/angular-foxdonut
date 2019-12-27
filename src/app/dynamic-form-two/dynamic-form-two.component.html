@@ -1,0 +1,56 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div *ngFor="let meta of metadata">
+    <div [ngSwitch]="meta.type">
+
+      <div *ngSwitchCase="'checkbox'">
+        <label>
+          <input
+            type="checkbox"
+            value="true"
+            [formControlName]="getFormControlName(meta)">
+
+          {{ meta.label }}
+        </label>
+      </div>
+
+      <div *ngSwitchCase="'textfield'">
+        <label>
+          {{ meta.label }}
+
+          <input
+            type="text"
+            [formControlName]="getFormControlName(meta)">
+        </label>
+      </div>
+
+      <div *ngSwitchCase="'textarea'">
+        <div>
+          <label>
+            {{ meta.label }}
+          </label>
+        </div>
+        <textarea [formControlName]="getFormControlName(meta)"></textarea>
+      </div>
+
+      <div *ngSwitchCase="'select'">
+        <label>
+          {{ meta.label }}
+
+          <select [formControlName]="getFormControlName(meta)">
+            <option value="">-- Select --</option>
+            <option *ngFor="let option of meta.options" [value]="option.id">
+              {{ option.label }}
+            </option>
+          </select>
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </div>
+</form>
+
+<div>{{ formSerial }}</div>

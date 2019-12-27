@@ -55,6 +55,8 @@ import { WishListModule } from './wish-list/wish-list.module';
 import { CarAppComponent } from './car-app/car-app.component';
 import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
+import { DynamicFormTwoComponent } from './dynamic-form-two/dynamic-form-two.component';
+import { DynamicDemoTwoComponent } from './dynamic-demo-two/dynamic-demo-two.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +94,9 @@ import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
     RoutingAboutComponent,
     CounterComponent,
     CarAppComponent,
-    DynamicDemoComponent
+    DynamicDemoComponent,
+    DynamicFormTwoComponent,
+    DynamicDemoTwoComponent
   ],
   imports: [
     BrowserModule,
