@@ -21,6 +21,7 @@ import { UserGuardService } from './routing/user-guard.service';
 import { UserResolveService } from './routing/user-resolve.service';
 import { CounterComponent } from './counter/counter.component';
 import { CarAppComponent } from './car-app/car-app.component';
+import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
 
 const routes: Routes = [
   { path: 'hello', component: HelloComponent },
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'ngrx', component: CounterComponent },
   { path: 'mod3', loadChildren: () => import('./module3/module3.module').then(m => m.Module3Module) },
   { path: 'car-app', component: CarAppComponent },
+  { path: 'dynamic-demo', component: DynamicDemoComponent },
   { path: '**', redirectTo: '/hello' }
 ];
 

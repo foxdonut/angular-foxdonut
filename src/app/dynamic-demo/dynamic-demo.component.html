@@ -1,0 +1,20 @@
+<div>
+  Dynamic Form
+</div>
+<div>
+  Credit:
+  <a
+    href="https://github.com/toddmotto/angular-dynamic-forms"
+    target="_blank">https://github.com/toddmotto/angular-dynamic-forms</a>
+</div>
+
+<div>
+  <!-- #form="appDynamicForm" -->
+  <app-dynamic-form
+    [config]="config"
+    (submitted)="submit($event)">
+  </app-dynamic-form>
+  {{ form.valid }}
+  {{ form.value | json }}
+</div>
+    #form="appDynamicForm"
