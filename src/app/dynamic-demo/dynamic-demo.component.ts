@@ -7,7 +7,7 @@ import { DynamicFormComponent } from '../dynamic-form/containers/dynamic-form/dy
 @Component({
   selector: 'app-dynamic-demo',
   templateUrl: './dynamic-demo.component.html',
-  styleUrls: ['./dynamic-demo.component.css']
+  styles: []
 })
 export class DynamicDemoComponent implements AfterViewInit {
   @ViewChild(DynamicFormComponent, { static: false }) form: DynamicFormComponent;
@@ -44,8 +44,8 @@ export class DynamicDemoComponent implements AfterViewInit {
       }
     });
 
-    this.form.setDisabled('submit', true);
-    this.form.setValue('name', 'Todd Motto');
+    // this.form.setDisabled('submit', true);
+    // this.form.setValue('name', 'Todd Motto');
   }
 
   submit(value: {[name: string]: any}) {

@@ -54,7 +54,7 @@ import { BudgetModule } from './budget/budget.module';
 import { WishListModule } from './wish-list/wish-list.module';
 import { CarAppComponent } from './car-app/car-app.component';
 import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
-import { DynamicFormComponent } from './dynamic-form/containers/dynamic-form/dynamic-form.component';
+import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 
 @NgModule({
   declarations: [
@@ -92,8 +92,7 @@ import { DynamicFormComponent } from './dynamic-form/containers/dynamic-form/dyn
     RoutingAboutComponent,
     CounterComponent,
     CarAppComponent,
-    DynamicDemoComponent,
-    DynamicFormComponent
+    DynamicDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +113,8 @@ import { DynamicFormComponent } from './dynamic-form/containers/dynamic-form/dyn
     EffectsModule.forRoot([AppEffects]),
     BudgetModule,
     CarModule,
-    WishListModule
+    WishListModule,
+    DynamicFormModule
   ],
   providers: [
     UsernameService,

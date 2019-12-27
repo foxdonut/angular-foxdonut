@@ -6,12 +6,12 @@ import { FieldConfig } from '../../models/field-config.interface';
 
 @Component({
   selector: 'app-form-button',
-  styleUrls: ['form-button.component.css'],
+  styles: [],
   template: `
     <div
-      class="dynamic-field form-button"
       [formGroup]="group">
       <button
+        class="btn btn-primary"
         [disabled]="config.disabled"
         type="submit">
         {{ config.label }}

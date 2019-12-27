@@ -9,12 +9,11 @@
 </div>
 
 <div>
-  <!-- #form="appDynamicForm" -->
   <app-dynamic-form
     [config]="config"
+    #form="appDynamicForm"
     (submitted)="submit($event)">
   </app-dynamic-form>
   {{ form.valid }}
   {{ form.value | json }}
 </div>
-    #form="appDynamicForm"

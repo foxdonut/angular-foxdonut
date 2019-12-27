@@ -6,14 +6,15 @@ import { FieldConfig } from '../../models/field-config.interface';
 
 @Component({
   selector: 'app-form-input',
-  styleUrls: ['form-input.component.css'],
+  styles: [],
   template: `
     <div
-      class="dynamic-field form-input"
+      class="form-group"
       [formGroup]="group">
       <label>{{ config.label }}</label>
       <input
         type="text"
+        class="form-control"
         [attr.placeholder]="config.placeholder"
         [formControlName]="config.name">
     </div>

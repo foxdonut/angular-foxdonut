@@ -4,12 +4,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { FieldConfig } from '../../models/field-config.interface';
 
 @Component({
+  exportAs: 'appDynamicForm',
   selector: 'app-dynamic-form',
-  styleUrls: ['dynamic-form.component.css'],
-  /*
-        [config]="field"
-        [group]="form">
-  */
+  styles: [],
   template: `
     <form
       class="dynamic-form"
@@ -17,7 +14,9 @@ import { FieldConfig } from '../../models/field-config.interface';
       (submitted)="handleSubmit($event)">
       <ng-container
         *ngFor="let field of config;"
-        dynamicField>
+        dynamicField
+        [config]="field"
+        [group]="form">
       </ng-container>
     </form>
   `
