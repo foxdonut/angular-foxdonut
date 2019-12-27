@@ -31,7 +31,8 @@ export class DynamicDemoComponent implements AfterViewInit {
     {
       label: 'Submit',
       name: 'submit',
-      type: 'button'
+      type: 'button',
+      disabled: true
     }
   ];
 

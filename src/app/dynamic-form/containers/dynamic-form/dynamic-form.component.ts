@@ -14,7 +14,7 @@ import { FieldConfig } from '../../models/field-config.interface';
       (submit)="handleSubmit($event)">
       <ng-container
         *ngFor="let field of config;"
-        dynamicField
+        appDynamicField
         [config]="field"
         [group]="form">
       </ng-container>
