@@ -5,5 +5,9 @@
   <div>Make: {{ car.make }}</div>
   <div>Model: {{ car.model }}</div>
   <div>Options: {{ car.options | json }}</div>
+  <div>
+    <button class="btn btn-sm btn-primary" (click)="onEdit(car)">Edit</button>
+    <button class="btn btn-sm btn-danger" (click)="onDelete(car)">Delete</button>
+  </div>
   <hr>
 </div>

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { State } from '../../reducers';
 import * as fromWishList from '../reducers';
 import * as fromSavedCars from '../saved-cars/saved-cars.reducer';
+import { editCar, deleteCar } from '../../car/car/car.actions';
 
 @Component({
   selector: 'app-wish-list',
@@ -20,4 +21,11 @@ export class WishListComponent implements OnInit {
     this.savedCars$ = this.store.pipe(select(fromWishList.wishListFeatureKey, fromSavedCars.savedCarsFeatureKey))
   }
 
+  onEdit(car: any) {
+    this.store.dispatch(editCar({ car }));
+  }
+
+  onDelete(car: any) {
+    this.store.dispatch(deleteCar({ car }));
+  }
 }
