@@ -9,5 +9,5 @@ export const selectCarModel = createAction(
 );
 
 export const saveCar = createAction(
-  '[Car] Save Car'
+  '[Car] Save Car', props<{ car: { make: string, model: string, options: any } }>()
 );

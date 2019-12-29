@@ -3,19 +3,19 @@
 <button
   *ngFor="let make of (state$ | async).availableMakes"
   class="btn"
-  [ngClass]="{ 'btn-primary': make === (state$ | async).make, 'btn-default': make !== (state$ | async).make }"
+  [ngClass]="{ 'btn-primary': make === form.value.make, 'btn-default': make !== form.value.make }"
   (click)="onSelectMake(make)">{{ make }}</button>
 
 <div *ngIf="(state$ | async).availableModels">
   <button
     *ngFor="let model of (state$ | async).availableModels"
     class="btn"
-    [ngClass]="{ 'btn-primary': model === (state$ | async).model, 'btn-default': model !== (state$ | async).model }"
+    [ngClass]="{ 'btn-primary': model === form.value.model, 'btn-default': model !== form.value.model }"
     (click)="onSelectModel(model)">{{ model }}</button>
 </div>
 
 <form [formGroup]="form">
-  <div formGroupName="selectedOptions">
+  <div formGroupName="options">
     <label *ngFor="let option of availableOptions">
       <input
         type="checkbox"

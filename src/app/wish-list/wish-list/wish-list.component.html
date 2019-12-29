@@ -1,1 +1,9 @@
 <div>Wish List</div>
+<hr>
+
+<div *ngFor="let car of (savedCars$ | async)">
+  <div>Make: {{ car.make }}</div>
+  <div>Model: {{ car.model }}</div>
+  <div>Options: {{ car.options | json }}</div>
+  <hr>
+</div>

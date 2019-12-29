@@ -10,8 +10,8 @@ export const initialState: State = [];
 
 const savedCarsReducer = createReducer(
   initialState,
-  on(saveCar, (state: State) => {
-    return state;
+  on(saveCar, (state: State, { car }) => {
+    return state.concat(car);
   })
 );
 

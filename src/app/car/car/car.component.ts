@@ -25,12 +25,14 @@ export class CarComponent implements OnInit {
   ngOnInit() {
     this.state$ = this.store.pipe(select(fromCar.carFeatureKey));
     this.form = new FormGroup({
-      selectedOptions: new FormGroup({})
+      make: new FormControl(''),
+      model: new FormControl(''),
+      options: new FormGroup({})
     });
     this.store
       .pipe(select(fromCar.carFeatureKey, fromAvailableOptions.availableOptionsFeatureKey))
       .subscribe((options: string[]) => {
-        const formGroup = this.form.get('selectedOptions') as FormGroup;
+        const formGroup = this.form.get('options') as FormGroup;
         this.availableOptions.forEach(option => formGroup.removeControl(option));
         options.forEach(option => formGroup.addControl(option, new FormControl(false)));
         this.availableOptions = options;
@@ -38,14 +40,16 @@ export class CarComponent implements OnInit {
   }
 
   onSelectMake(make: string) {
+    this.form.get('make').setValue(make);
     this.store.dispatch(selectCarMake({ make }));
   }
 
   onSelectModel(model: string) {
+    this.form.get('model').setValue(model);
     this.store.dispatch(selectCarModel({ model }));
   }
 
   save() {
-    this.store.dispatch(saveCar());
+    this.store.dispatch(saveCar({ car: this.form.value }));
   }
 }
