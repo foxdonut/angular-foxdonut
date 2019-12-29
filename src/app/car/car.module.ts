@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import * as fromCar from './reducers';
 import { CarComponent } from './car/car.component';
@@ -11,6 +11,7 @@ import { CarComponent } from './car/car.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forFeature(fromCar.carFeatureKey, fromCar.reducers)
   ],
   exports: [

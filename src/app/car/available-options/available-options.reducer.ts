@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { selectCarModel } from '../model/model.actions';
+import { selectCarModel } from '../car/car.actions';
 
 export const availableOptionsFeatureKey = 'availableOptions';
 

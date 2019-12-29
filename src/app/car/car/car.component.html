@@ -14,22 +14,25 @@
     (click)="onSelectModel(model)">{{ model }}</button>
 </div>
 
-<div *ngIf="(state$ | async).availableOptions.length > 0">
-  <label *ngFor="let option of (state$ | async).availableOptions">
-    <input
-      type="checkbox"
-      value="true"
-      [(ngModel)]="selectedOptions[option]"
-    >
-    {{ option }}
-  </label>
+<form [formGroup]="form">
+  <div formGroupName="selectedOptions">
+    <label *ngFor="let option of availableOptions">
+      <input
+        type="checkbox"
+        value="true"
+        [formControlName]="option"
+      >
+      {{ option }}
+    </label>
 
-  <div>{{ selectedOptions | json }}</div>
-
-  <div>
-    <button
-      class="btn btn-primary">
-      Save
-    </button>
+    <div>
+      <button
+        class="btn btn-primary"
+        (click)="save()">
+        Save
+      </button>
+    </div>
   </div>
-</div>
+
+  <div>{{ form.value | json }}</div>
+</form>

@@ -156,6 +156,4 @@ on(allCarsLoaded, (state, action) =>
   adapter.addAll(action.cars, { ...state, carsAreLoaded: true }))
 ```
 
-## &rarr; [Open the project](https://stackblitz.com/github/foxdonut/angular-foxdonut/tree/modules-and-features?file=src%2Fapp%2Fcar%2Favailable-makes/available-makes.reducer.ts)
-
 [Contents](../README.md#angular-foxdonut)

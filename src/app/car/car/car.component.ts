@@ -6,8 +6,9 @@ import { State } from 'src/app/reducers';
 import { State as CarState } from 'src/app/car/reducers';
 
 import * as fromCar from '../reducers';
-import { selectCarMake } from '../make/make.actions';
-import { selectCarModel } from '../model/model.actions';
+import * as fromAvailableOptions from '../available-options/available-options.reducer';
+import { selectCarMake, selectCarModel, saveCar } from './car.actions';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-car',
@@ -16,12 +17,24 @@ import { selectCarModel } from '../model/model.actions';
 })
 export class CarComponent implements OnInit {
   state$: Observable<CarState>;
-  selectedOptions: Record<string, boolean> = {};
+  form: FormGroup;
+  availableOptions: string[] = [];
 
   constructor(private store: Store<State>) { }
 
   ngOnInit() {
     this.state$ = this.store.pipe(select(fromCar.carFeatureKey));
+    this.form = new FormGroup({
+      selectedOptions: new FormGroup({})
+    });
+    this.store
+      .pipe(select(fromCar.carFeatureKey, fromAvailableOptions.availableOptionsFeatureKey))
+      .subscribe((options: string[]) => {
+        const formGroup = this.form.get('selectedOptions') as FormGroup;
+        this.availableOptions.forEach(option => formGroup.removeControl(option));
+        options.forEach(option => formGroup.addControl(option, new FormControl(false)));
+        this.availableOptions = options;
+      });
   }
 
   onSelectMake(make: string) {
@@ -30,5 +43,9 @@ export class CarComponent implements OnInit {
 
   onSelectModel(model: string) {
     this.store.dispatch(selectCarModel({ model }));
+  }
+
+  save() {
+    this.store.dispatch(saveCar());
   }
 }

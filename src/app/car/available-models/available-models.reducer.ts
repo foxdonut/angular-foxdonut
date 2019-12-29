@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { selectCarMake } from '../make/make.actions';
+import { selectCarMake } from '../car/car.actions';
 
 export const availableModelsFeatureKey = 'availableModels';
 
