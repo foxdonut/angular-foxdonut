@@ -39,6 +39,24 @@ export class CarComponent implements OnInit {
       });
   }
 
+  /*
+  (Edit) Select Make:
+  - Set selected make on form
+  - Load available models
+  - trigger action for available models
+  Select Model:
+  - Set selected model on form
+  - Load available options
+  - trigger action for available options
+  - Set selected options on form
+
+  Save:
+  - Clear form
+  - Clear available options
+  - Clear available models
+  - Clear available makes
+  */
+
   onSelectMake(make: string) {
     this.form.get('make').setValue(make);
     this.store.dispatch(selectCarMake({ make }));
