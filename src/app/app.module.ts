@@ -59,6 +59,8 @@ import { DynamicFormTwoComponent } from './dynamic-form-two/dynamic-form-two.com
 import { DynamicDemoTwoComponent } from './dynamic-demo-two/dynamic-demo-two.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { EntityDataModule } from '@ngrx/data';
+import { entityConfig } from './entity-metadata';
 
 @NgModule({
   declarations: [
@@ -121,7 +123,8 @@ import { environment } from '../environments/environment';
     CarModule,
     WishListModule,
     DynamicFormModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EntityDataModule.forRoot(entityConfig)
   ],
   providers: [
     UsernameService,

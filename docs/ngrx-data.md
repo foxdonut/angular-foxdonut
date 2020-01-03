@@ -18,14 +18,15 @@ This should also add `EntityDataModule` to the `imports` of `app.module.ts`:
 
 ```typescript
 imports: [
-  EntityDataModule.forRoot({})
+  EntityDataModule.forRoot(entityConfig)
 ]
 ```
 
-In each module that has entities, define an entity metadata map:
+The `entityConfig` comes from the created `app/entity-metadata.ts` file. This is where you define an
+entity metadata map:
 
 ```typescript
-const entityMetadataMap: EntityMetadataMap = {
+const entityMetadata: EntityMetadataMap = {
   Car: {
     entityDispatcherOptions: ...,
     sortComparer: ...,
@@ -35,13 +36,18 @@ const entityMetadataMap: EntityMetadataMap = {
 };
 ```
 
-Then in the constructor, inject the entity definition service and register the entity metadata map:
+THIS PART MAY NOT BE NECESSARY &darr;
+
+Then in the module constructor, inject the entity definition service and register the entity
+metadata map:
 
 ```typescript
 constructor(private eds: EntityDefinitionService) {
-  eds.registerMetadataMap(entityMetadataMap);
+  eds.registerMetadataMap(entityMetadata);
 }
 ```
+
+THIS PART MAY NOT BE NECESSARY &uarr;
 
 Finally, create an entity service, e.g. `car-entity.service.ts`:
 
@@ -84,7 +90,7 @@ export class CarDataService extends DefaultDataService<Car> {
     super('Car', http, urlGenerator);
   }
 
-  // Override the getAll method to define custom behaviour
+  // Override the getAll method to change the URL and manage the response
   getAll(): Observable<Car[]> {
     return this.http.get('/path/to/cars').pipe(map(response => response.records));
   }
@@ -97,12 +103,10 @@ In the module's constructor, inject the entity data service and register the cus
 
 ```typescript
 constructor(
-  private entityDefService: EntityDefinitionService,
   private entityDataService: EntityDataService,
   private carDataService: CarDataService) {
 
-  entityDefService.registerMetadataMap(entityMetadataMap);
-  entitytDataService.registerService(carDataService);
+  entitytDataService.registerService('Car', carDataService);
 }
 ```
 
