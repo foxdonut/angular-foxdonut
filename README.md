@@ -22,5 +22,7 @@ Learning Angular.
 1. [HTTP Requests](docs/http-requests.md#angular-foxdonut)
 1. [Routing](docs/routing.md#angular-foxdonut)
 1. [NgRx Setup](docs/ngrx-setup.md#angular-foxdonut)
+1. [NgRx DevTools](docs/ngrx-devtools.md#angular-foxdonut)
 1. [Modules and Features](docs/modules-and-features.md#angular-foxdonut)
 1. [NgRx Entity](docs/ngrx-entity.md#angular-foxdonut)
+1. [NgRx Data](docs/ngrx-data.md#angular-foxdonut)

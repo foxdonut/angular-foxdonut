@@ -57,6 +57,8 @@ import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { DynamicFormTwoComponent } from './dynamic-form-two/dynamic-form-two.component';
 import { DynamicDemoTwoComponent } from './dynamic-demo-two/dynamic-demo-two.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -118,7 +120,8 @@ import { DynamicDemoTwoComponent } from './dynamic-demo-two/dynamic-demo-two.com
     BudgetModule,
     CarModule,
     WishListModule,
-    DynamicFormModule
+    DynamicFormModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
     UsernameService,
