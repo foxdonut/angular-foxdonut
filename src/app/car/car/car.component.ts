@@ -9,6 +9,7 @@ import * as fromCar from '../reducers';
 import * as fromAvailableOptions from '../available-options/available-options.reducer';
 import { selectCarMake, selectCarModel, saveCar } from './car.actions';
 import { FormGroup, FormControl } from '@angular/forms';
+import { CarEntityService } from '../car-entity.service';
 
 @Component({
   selector: 'app-car',
@@ -20,7 +21,7 @@ export class CarComponent implements OnInit {
   form: FormGroup;
   availableOptions: string[] = [];
 
-  constructor(private store: Store<State>) { }
+  constructor(private store: Store<State>, private carEntityService: CarEntityService) { }
 
   ngOnInit() {
     this.state$ = this.store.pipe(select(fromCar.carFeatureKey));
@@ -37,6 +38,8 @@ export class CarComponent implements OnInit {
         options.forEach(option => formGroup.addControl(option, new FormControl(false)));
         this.availableOptions = options;
       });
+
+    this.carEntityService.getAll();
   }
 
   /*

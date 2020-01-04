@@ -11,6 +11,7 @@ NgRx Data builds on NgRx Entity and adds more support to reduce boilerplate in c
 Add NgRx Data to the project:
 
 ```
+npm i @ngrx/entity
 ng add @ngrx/data
 ```
 
@@ -35,19 +36,6 @@ const entityMetadata: EntityMetadataMap = {
   }
 };
 ```
-
-THIS PART MAY NOT BE NECESSARY &darr;
-
-Then in the module constructor, inject the entity definition service and register the entity
-metadata map:
-
-```typescript
-constructor(private eds: EntityDefinitionService) {
-  eds.registerMetadataMap(entityMetadata);
-}
-```
-
-THIS PART MAY NOT BE NECESSARY &uarr;
 
 Finally, create an entity service, e.g. `car-entity.service.ts`:
 

@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import * as fromCar from './reducers';
 import { CarComponent } from './car/car.component';
+import { CarEntityService } from './car-entity.service';
 
 @NgModule({
   declarations: [CarComponent],
@@ -16,6 +17,9 @@ import { CarComponent } from './car/car.component';
   ],
   exports: [
     CarComponent
+  ],
+  providers: [
+    CarEntityService
   ]
 })
 export class CarModule { }
