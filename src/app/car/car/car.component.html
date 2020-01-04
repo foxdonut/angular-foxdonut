@@ -15,6 +15,7 @@
 </div>
 
 <form [formGroup]="form">
+
   <div formGroupName="options">
     <label *ngFor="let option of availableOptions">
       <input
@@ -36,3 +37,9 @@
 
   <div>{{ form.value | json }}</div>
 </form>
+
+<div *ngIf="loading$ | async">Loading, please wait...</div>
+
+<div *ngFor="let car of (cars$ | async)">
+  {{ car.make }} {{ car.model }}
+</div>

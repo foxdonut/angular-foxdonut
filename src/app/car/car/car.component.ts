@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { FormGroup, FormControl } from '@angular/forms';
 
 import { State } from 'src/app/reducers';
 import { State as CarState } from 'src/app/car/reducers';
-
 import * as fromCar from '../reducers';
 import * as fromAvailableOptions from '../available-options/available-options.reducer';
 import { selectCarMake, selectCarModel, saveCar } from './car.actions';
-import { FormGroup, FormControl } from '@angular/forms';
 import { CarEntityService } from '../car-entity.service';
+import { Car } from '../car.model';
 
 @Component({
   selector: 'app-car',
@@ -20,6 +20,8 @@ export class CarComponent implements OnInit {
   state$: Observable<CarState>;
   form: FormGroup;
   availableOptions: string[] = [];
+  loading$: Observable<boolean>;
+  cars$: Observable<Car[]>;
 
   constructor(private store: Store<State>, private carEntityService: CarEntityService) { }
 
@@ -38,6 +40,9 @@ export class CarComponent implements OnInit {
         options.forEach(option => formGroup.addControl(option, new FormControl(false)));
         this.availableOptions = options;
       });
+
+    this.loading$ = this.carEntityService.loading$;
+    this.cars$ = this.carEntityService.entities$;
 
     this.carEntityService.getAll();
   }
