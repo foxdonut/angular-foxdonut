@@ -80,7 +80,7 @@ export class CarDataService extends DefaultDataService<Car> {
 
   // Override the getAll method to change the URL and manage the response
   getAll(): Observable<Car[]> {
-    return this.http.get('/path/to/cars').pipe(map(response => response.records));
+    return this.http.get('/path/to/cars').pipe(map((response: any) => response.records));
   }
 }
 ```

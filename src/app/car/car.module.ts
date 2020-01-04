@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import * as fromCar from './reducers';
 import { CarComponent } from './car/car.component';
 import { CarEntityService } from './car-entity.service';
+import { CarDataService } from './car-data.service';
+import { EntityDataService } from '@ngrx/data';
 
 @NgModule({
   declarations: [CarComponent],
@@ -19,7 +21,12 @@ import { CarEntityService } from './car-entity.service';
     CarComponent
   ],
   providers: [
-    CarEntityService
+    CarEntityService,
+    CarDataService
   ]
 })
-export class CarModule { }
+export class CarModule {
+  constructor(private entityDataService: EntityDataService, private carDataService: CarDataService) {
+    entityDataService.registerService('Car', carDataService);
+  }
+}

@@ -62,6 +62,8 @@ import { environment } from '../environments/environment';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 
+import { createServer } from './sinonServer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -132,4 +134,8 @@ import { entityConfig } from './entity-metadata';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    createServer();
+  }
+}
