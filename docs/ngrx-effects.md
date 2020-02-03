@@ -86,10 +86,55 @@ loadMovies$ = createEffect(() =>
     mergeMap(() => this.moviesService.getAll()
       .pipe(
         map(movies => moviesLoadSuccess({ movies })),
-        catchError(() => moviesLoadError())
+        catchError(() => of(moviesLoadError()))
       )
     )
   )
+);
+```
+
+Here is another example:
+
+```typescript
+login$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(LoginPageActions.login),
+    exhaustMap(action =>
+      this.authService.login(action.credentials).pipe(
+        map(user => AuthApiActions.loginSuccess({ user })),
+        catchError(error => of(AuthApiActions.loginFailure({ error })))
+      )
+    )
+  )
+);
+```
+
+> What is the difference between `mergeMap` and `exhaustMap`?
+
+## Accessing State
+
+When state is needed, the RxJS `withLatestFrom` operator can be used to provide it.
+
+The example below shows the `addBookToCollectionSuccess$` effect displaying a different alert
+depending on the number of books in the collection state.
+
+```typescript
+addBookToCollectionSuccess$ = createEffect(
+  () =>
+    this.actions$.pipe(
+      ofType(CollectionApiActions.addBookSuccess),
+      concatMap(action => of(action).pipe(
+        withLatestFrom(this.store.pipe(select(fromBooks.getCollectionBookIds)))
+      )),
+      tap(([action, bookCollection]) => {
+        if (bookCollection.length === 1) {
+          window.alert('Congrats on adding your first book!');
+        } else {
+          window.alert('You have added book number ' + bookCollection.length);
+        }
+      })
+    ),
+  { dispatch: false }
 );
 ```
 
