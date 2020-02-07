@@ -56,6 +56,25 @@ login$ = createEffect(() => {
 }, { dispatch: false });
 ```
 
+## A Note about RxJs Flattening Operators
+
+Effects are listeners of observable streams that continue until an error or completion occurs. In
+order for effects to continue running in the event of an error in the observable, or completion of
+the observable stream, they must be nested within a "flattening" operator, such as `mergeMap`,
+`concatMap`, `exhaustMap` and other flattening operators.
+([Reference](https://ngrx.io/guide/effects#handling-errors))
+
+Flattening operators automatically subscribe to nested observables, using a different strategy
+depending on the operator:
+
+- `mergeMap`: subscribes to each observable as they arrive. Values from the observables may be
+  interlaced.
+- `concatMap`: waits until the current observable has finished before subscribing to the next
+  observable.
+- `switchMap`: unsubscribes from the current observable as soon as the next observable arrives.
+- `exhaustMap`: only subscribes to the next observable after the current observable has finished,
+  ignoring any observables that arrive in the meantime.
+
 ## Using an Effect to Load Data
 
 We can use an effect to load data when an action requesting that data has been dispatched:
@@ -65,7 +84,7 @@ load$ = createEffect(
   () => this.action$
     .pipe(
       ofType(loadAll),
-      concatMap(action => this.httpService.loadAll(action.param)),
+      mergeMap(action => this.httpService.loadAll(action.param)),
       map(data => allDataLoaded({ data })) // action creator
     )
 );
@@ -73,17 +92,14 @@ load$ = createEffect(
 
 ## Handling Errors
 
-Effects are listeners of observable streams that continue until an error or completion occurs. In
-order for effects to continue running in the event of an error in the observable, or completion of
-the observable stream, they must be nested within a "flattening" operator, such as `mergeMap`,
-`concatMap`, `exhaustMap` and other flattening operators.
-([Source](https://ngrx.io/guide/effects#handling-errors))
+We can use `catchError` to handle errors and `of` to return an observable with the action that we
+want to dispatch:
 
 ```typescript
 loadMovies$ = createEffect(() =>
   this.actions$.pipe(
     ofType(loadMovies),
-    mergeMap(() => this.moviesService.getAll()
+    exhaustMap(() => this.moviesService.getAll()
       .pipe(
         map(movies => moviesLoadSuccess({ movies })),
         catchError(() => of(moviesLoadError()))
@@ -99,7 +115,7 @@ Here is another example:
 login$ = createEffect(() =>
   this.actions$.pipe(
     ofType(LoginPageActions.login),
-    exhaustMap(action =>
+    switchMap(action =>
       this.authService.login(action.credentials).pipe(
         map(user => AuthApiActions.loginSuccess({ user })),
         catchError(error => of(AuthApiActions.loginFailure({ error })))
@@ -108,8 +124,6 @@ login$ = createEffect(() =>
   )
 );
 ```
-
-> What is the difference between `mergeMap` and `exhaustMap`?
 
 ## Accessing State
 
@@ -124,6 +138,7 @@ addBookToCollectionSuccess$ = createEffect(
     this.actions$.pipe(
       ofType(CollectionApiActions.addBookSuccess),
       concatMap(action => of(action).pipe(
+        // this produces an array with the action and the latest value from the store
         withLatestFrom(this.store.pipe(select(fromBooks.getCollectionBookIds)))
       )),
       tap(([action, bookCollection]) => {
