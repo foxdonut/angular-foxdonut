@@ -10,7 +10,7 @@ import { DynamicFormComponent } from '../dynamic-form/containers/dynamic-form/dy
   styles: []
 })
 export class DynamicDemoComponent implements AfterViewInit {
-  @ViewChild(DynamicFormComponent, { static: false }) form: DynamicFormComponent;
+  @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
 
   config: FieldConfig[] = [
     {

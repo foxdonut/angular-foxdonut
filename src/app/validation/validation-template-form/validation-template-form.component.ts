@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styles: []
 })
 export class ValidationTemplateFormComponent implements OnInit {
-  @ViewChild('f', { static: false }) myForm: NgForm;
+  @ViewChild('f') myForm: NgForm;
   choices = ['Internet', 'Phone', 'Word of mouth', 'Other'];
   genders = ['Female', 'Male', 'Non-binary'];
   otherItems = [];
