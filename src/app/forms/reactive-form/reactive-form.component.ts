@@ -11,6 +11,7 @@ export class ReactiveFormComponent implements OnInit {
   choices = ['Internet', 'Phone', 'Word of mouth', 'Other'];
   genders = ['Female', 'Male', 'Non-binary'];
   submittedForm = '';
+  otherItems: FormArray;
 
   constructor() { }
 
@@ -25,6 +26,7 @@ export class ReactiveFormComponent implements OnInit {
       gender: new FormControl(),
       otherItems: new FormArray([])
     });
+    this.otherItems = (this.myForm.get('otherItems') as FormArray);
   }
 
   onAddItem() {
