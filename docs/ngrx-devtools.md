@@ -60,7 +60,7 @@ A component can use OnPush Change detection with this setting:
 ## Meta Reducers
 
 Meta reducers run before regular reducers. A meta reducer receives a reducer function as a parameter
-and returns a reducer function. Thus it can control what to do before and after calling the reuglar
+and returns a reducer function. Thus it can control what to do before and after calling the regular
 reducer function, such as logging:
 
 ```typescript
@@ -76,3 +76,5 @@ function logger(reducer: ActionReducer<any>): ActionReducer<any> {
 export const metaReducers: MetaReducer<AppState>[] =
   environment.production: [] : [logger];
 ```
+
+[Contents](../README.md#angular-foxdonut)
