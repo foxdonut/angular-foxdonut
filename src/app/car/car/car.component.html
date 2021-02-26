@@ -1,45 +1,51 @@
-<div>Car Selection</div>
+<div class="car-container">
+  <div class="title">Car Selection</div>
 
-<button
-  *ngFor="let make of (state$ | async).availableMakes"
-  class="btn"
-  [ngClass]="{ 'btn-primary': make === form.value.make, 'btn-default': make !== form.value.make }"
-  (click)="onSelectMake(make)">{{ make }}</button>
-
-<div *ngIf="(state$ | async).availableModels">
   <button
-    *ngFor="let model of (state$ | async).availableModels"
-    class="btn"
-    [ngClass]="{ 'btn-primary': model === form.value.model, 'btn-default': model !== form.value.model }"
-    (click)="onSelectModel(model)">{{ model }}</button>
-</div>
+    *ngFor="let make of (state$ | async).availableMakes"
+    class="btn btn-sm btn-default mr-1"
+    [ngClass]="{ 'btn-primary': make === form.value.make, 'btn-default': make !== form.value.make }"
+    (click)="onSelectMake(make)">{{ make }}</button>
 
-<form [formGroup]="form">
-
-  <div formGroupName="options">
-    <label *ngFor="let option of availableOptions">
-      <input
-        type="checkbox"
-        value="true"
-        [formControlName]="option"
-      >
-      {{ option }}
-    </label>
-
-    <div>
-      <button
-        class="btn btn-primary"
-        (click)="save()">
-        Save
-      </button>
-    </div>
+  <div *ngIf="(state$ | async).availableModels" class="mt-2">
+    <button
+      *ngFor="let model of (state$ | async).availableModels"
+      class="btn btn-sm btn-default mr-1"
+      [ngClass]="{ 'btn-primary': model === form.value.model, 'btn-default': model !== form.value.model }"
+      (click)="onSelectModel(model)">{{ model }}</button>
   </div>
 
-  <div>{{ form.value | json }}</div>
-</form>
+  <form [formGroup]="form" class="mt-2">
 
-<div *ngIf="loading$ | async">Loading, please wait...</div>
+    <div formGroupName="options">
+      <label *ngFor="let option of availableOptions" class="mr-2">
+        <input
+          type="checkbox"
+          value="true"
+          [formControlName]="option"
+        >
+        {{ option }}
+      </label>
 
-<div *ngFor="let car of (cars$ | async)">
-  {{ car.make }} {{ car.model }}
+      <div>
+        <button
+          class="btn btn-primary"
+          (click)="save()">
+          Save
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-1" style="font-family: monospace">{{ form.value | json }}</div>
+  </form>
+
+  <div class="mt-1">
+    <div *ngIf="loading$ | async">Loading, please wait...</div>
+
+    <ul>
+      <li *ngFor="let car of (cars$ | async)">
+        {{ car.make }} {{ car.model }}
+      </li>
+    </ul>
+  </div>
 </div>

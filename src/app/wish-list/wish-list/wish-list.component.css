@@ -1,0 +1,9 @@
+.wish-list-container {
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+.title {
+  color: gray;
+  font-weight: bold;
+  margin-bottom: 5px;
+}

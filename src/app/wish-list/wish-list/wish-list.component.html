@@ -1,13 +1,15 @@
-<div>Wish List</div>
-<hr>
-
-<div *ngFor="let car of (savedCars$ | async)">
-  <div>Make: {{ car.make }}</div>
-  <div>Model: {{ car.model }}</div>
-  <div>Options: {{ car.options | json }}</div>
-  <div>
-    <button class="btn btn-sm btn-primary" (click)="onEdit(car)">Edit</button>
-    <button class="btn btn-sm btn-danger" (click)="onDelete(car)">Delete</button>
-  </div>
+<div class="wish-list-container">
+  <div class="title">Wish List</div>
   <hr>
+
+  <div *ngFor="let car of (savedCars$ | async)">
+    <div>Make: {{ car.make }}</div>
+    <div>Model: {{ car.model }}</div>
+    <div>Options: {{ car.options | json }}</div>
+    <div class="mt-1">
+      <button class="btn btn-sm btn-primary mr-1" (click)="onEdit(car)">Edit</button>
+      <button class="btn btn-sm btn-danger" (click)="onDelete(car)">Delete</button>
+    </div>
+    <hr>
+  </div>
 </div>
