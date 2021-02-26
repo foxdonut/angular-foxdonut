@@ -25,7 +25,7 @@ import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
 import { DynamicDemoTwoComponent } from './dynamic-demo-two/dynamic-demo-two.component';
 
 const routes: Routes = [
-  { path: 'hello', component: HelloComponent },
+  { path: '', component: HelloComponent },
   { path: 'component-options', component: ComponentOptionsComponent },
   { path: 'bindings', component: BindingsComponent },
   { path: 'using-directives', component: UsingDirectivesComponent },
@@ -44,9 +44,9 @@ const routes: Routes = [
       canActivate: [UserGuardService], resolve: { user: UserResolveService } },
     { path: 'users', component: RoutingUsersComponent }
   ] },
-  { path: 'ngrx', component: CounterComponent },
+  { path: 'counter', component: CounterComponent },
   { path: 'mod3', loadChildren: () => import('./module3/module3.module').then(m => m.Module3Module) },
-  { path: 'car-app', component: CarAppComponent },
+  { path: 'car-app', loadChildren: () => import('./car-app/car-app.module').then(m => m.CarAppModule ) },
   { path: 'dynamic-demo', component: DynamicDemoComponent },
   { path: 'dynamic-demo-two', component: DynamicDemoTwoComponent },
   { path: '**', redirectTo: '/hello' }

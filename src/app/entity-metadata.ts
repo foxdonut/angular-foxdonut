@@ -1,6 +1,6 @@
 import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
 
-import { carEntityMetadata } from './car/car.model';
+import { carEntityMetadata } from './car-app/car/car.model';
 
 const entityMetadata: EntityMetadataMap = {
   Car: carEntityMetadata

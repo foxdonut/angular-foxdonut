@@ -5,8 +5,7 @@ import { State } from '../reducers';
 
 @Component({
   selector: 'app-car-app',
-  templateUrl: './car-app.component.html',
-  styleUrls: ['./car-app.component.css']
+  templateUrl: './car-app.component.html'
 })
 export class CarAppComponent implements OnInit {
   state$: Observable<State>;

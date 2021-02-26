@@ -47,10 +47,6 @@ import { StoreModule } from '@ngrx/store';
 import { CounterComponent } from './counter/counter.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
-import { CarModule } from './car/car.module';
-import { BudgetModule } from './budget/budget.module';
-import { WishListModule } from './wish-list/wish-list.module';
-import { CarAppComponent } from './car-app/car-app.component';
 import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { DynamicFormTwoComponent } from './dynamic-form-two/dynamic-form-two.component';
@@ -97,7 +93,6 @@ import { createServer } from './sinonServer';
     RoutingUserComponent,
     RoutingAboutComponent,
     CounterComponent,
-    CarAppComponent,
     DynamicDemoComponent,
     DynamicFormTwoComponent,
     DynamicDemoTwoComponent
@@ -119,9 +114,6 @@ import { createServer } from './sinonServer';
     }),
     */
     EffectsModule.forRoot([AppEffects]),
-    BudgetModule,
-    CarModule,
-    WishListModule,
     DynamicFormModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EntityDataModule.forRoot(entityConfig)

@@ -1,14 +1,14 @@
 // import { counterReducer } from '../counter/counter.reducer';
 
-import * as fromBudget from '../budget/reducers';
-import * as fromCar from '../car/reducers';
-import * as fromWishList from '../wish-list/reducers';
+import { budgetFeatureKey, BudgetState } from '../car-app/budget/reducers';
+import { carFeatureKey, CarState } from '../car-app/car/reducers';
+import { wishListFeatureKey, WishListState } from '../car-app/wish-list/reducers';
 
 export interface State {
   // counter: number;
-  [fromBudget.budgetFeatureKey]: fromBudget.State;
-  [fromCar.carFeatureKey]: fromCar.State;
-  [fromWishList.wishListFeatureKey]: fromWishList.State;
+  [budgetFeatureKey]: BudgetState;
+  [carFeatureKey]: CarState;
+  [wishListFeatureKey]: WishListState;
 }
 
 /*
