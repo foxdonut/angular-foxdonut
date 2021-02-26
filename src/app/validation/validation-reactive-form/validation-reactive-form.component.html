@@ -59,7 +59,7 @@
   <div formArrayName="otherItems">
     Other items:
     <button type="button" class="btn btn-primary btn-sm" (click)="onAddItem()">Add Item</button>
-    <div *ngFor="let ctrl of myForm.get('otherItems').controls; let i = index" style="margin-top: 8px">
+    <div *ngFor="let ctrl of otherItems.controls; let i = index" style="margin-top: 8px">
       <input type="text" [formControlName]="i">
     </div>
   </div>

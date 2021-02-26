@@ -11,6 +11,7 @@ export class ValidationReactiveFormComponent implements OnInit {
   choices = ['Internet', 'Phone', 'Word of mouth', 'Other'];
   genders = ['Female', 'Male', 'Non-binary'];
   submittedForm = '';
+  otherItems: FormArray;
 
   constructor() { }
 
@@ -28,6 +29,7 @@ export class ValidationReactiveFormComponent implements OnInit {
       gender: new FormControl(),
       otherItems: new FormArray([])
     });
+    this.otherItems = (this.myForm.get('otherItems') as FormArray);
   }
 
   getUserControl(field: string): FormControl {
@@ -60,7 +62,7 @@ export class ValidationReactiveFormComponent implements OnInit {
 
   onAddItem() {
     const control = new FormControl();
-    (this.myForm.get('otherItems') as FormArray).push(control);
+    this.otherItems.push(control);
   }
 
   suggestUsername() {
