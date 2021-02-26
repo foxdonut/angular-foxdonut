@@ -44,7 +44,7 @@ const routes: Routes = [
       canActivate: [UserGuardService], resolve: { user: UserResolveService } },
     { path: 'users', component: RoutingUsersComponent }
   ] },
-  { path: 'counter', component: CounterComponent },
+  { path: 'counter', loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule ) },
   { path: 'mod3', loadChildren: () => import('./module3/module3.module').then(m => m.Module3Module) },
   { path: 'car-app', loadChildren: () => import('./car-app/car-app.module').then(m => m.CarAppModule ) },
   { path: 'dynamic-demo', component: DynamicDemoComponent },

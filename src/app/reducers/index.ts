@@ -1,11 +1,10 @@
-// import { counterReducer } from '../counter/counter.reducer';
-
+import { counterFeatureKey } from '../counter/counter.reducer';
 import { budgetFeatureKey, BudgetState } from '../car-app/budget/reducers';
 import { carFeatureKey, CarState } from '../car-app/car/reducers';
 import { wishListFeatureKey, WishListState } from '../car-app/wish-list/reducers';
 
 export interface State {
-  // counter: number;
+  [counterFeatureKey]: number;
   [budgetFeatureKey]: BudgetState;
   [carFeatureKey]: CarState;
   [wishListFeatureKey]: WishListState;

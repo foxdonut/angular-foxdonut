@@ -8,10 +8,7 @@ import { CounterService } from './counter.service';
 
 @Component({
   selector: 'app-counter',
-  templateUrl: './counter.component.html',
-  styles: [`
-    button { margin-left: 4px }
-  `]
+  templateUrl: './counter.component.html'
 })
 export class CounterComponent implements OnInit {
   // counter$: Observable<number>;

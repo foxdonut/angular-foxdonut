@@ -22,4 +22,3 @@ import { CarAppRoutingModule } from './car-app-routing.module';
   ]
 })
 export class CarAppModule { }
-

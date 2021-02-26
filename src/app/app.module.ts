@@ -44,7 +44,6 @@ import { RoutingAboutComponent } from './routing/routing-about/routing-about.com
 import { UserGuardService } from './routing/user-guard.service';
 import { StoreModule } from '@ngrx/store';
 // import { reducers, metaReducers } from './reducers';
-import { CounterComponent } from './counter/counter.component';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
@@ -92,7 +91,6 @@ import { createServer } from './sinonServer';
     RoutingUsersComponent,
     RoutingUserComponent,
     RoutingAboutComponent,
-    CounterComponent,
     DynamicDemoComponent,
     DynamicFormTwoComponent,
     DynamicDemoTwoComponent
