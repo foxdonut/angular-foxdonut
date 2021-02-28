@@ -10,7 +10,9 @@ import { CarDataService } from './car-data.service';
 import { EntityDataService } from '@ngrx/data';
 
 @NgModule({
-  declarations: [CarComponent],
+  declarations: [
+    CarComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,

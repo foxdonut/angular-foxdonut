@@ -49,7 +49,7 @@ const routes: Routes = [
   { path: 'car-app', loadChildren: () => import('./car-app/car-app.module').then(m => m.CarAppModule ) },
   { path: 'dynamic-demo', component: DynamicDemoComponent },
   { path: 'dynamic-demo-two', component: DynamicDemoTwoComponent },
-  { path: '**', redirectTo: '/hello' }
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({

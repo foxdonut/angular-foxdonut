@@ -7,7 +7,9 @@ import { budgetFeatureKey, budgetReducers, budgetMetaReducers } from './reducers
 import { BudgetComponent } from './components/budget.component';
 
 @NgModule({
-  declarations: [BudgetComponent],
+  declarations: [
+    BudgetComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,

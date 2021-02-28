@@ -43,7 +43,6 @@ import { RoutingUserComponent } from './routing/routing-user/routing-user.compon
 import { RoutingAboutComponent } from './routing/routing-about/routing-about.component';
 import { UserGuardService } from './routing/user-guard.service';
 import { StoreModule } from '@ngrx/store';
-// import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
@@ -102,15 +101,6 @@ import { createServer } from './sinonServer';
     ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot({}),
-    /*
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
-    }),
-    */
     EffectsModule.forRoot([AppEffects]),
     DynamicFormModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
