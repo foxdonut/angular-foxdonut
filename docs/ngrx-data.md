@@ -23,6 +23,15 @@ imports: [
 ]
 ```
 
+The `Effects` module is required for NgRx Data, even if no other effects are defined. So be sure to
+initialize `EffectsModule`:
+
+```typescript
+imports: [
+  EffectsModule.forRoot([])
+]
+```
+
 The `entityConfig` comes from the created `app/entity-metadata.ts` file. This is where you define an
 entity metadata map:
 
@@ -33,7 +42,17 @@ const entityMetadata: EntityMetadataMap = {
     sortComparer: ...,
     selectId: ...,
     ...
-  }
+  },
+  Meiosis: {} // use default options
+};
+
+const pluralNames = {
+  Meiosis: 'Meioses'
+};
+
+export const entityConfig: EntityDataModuleConfig = {
+  entityMetadata,
+  pluralNames
 };
 ```
 
@@ -48,7 +67,8 @@ export class CarEntityService extends EntityCollectionServiceBase<Car> {
 }
 ```
 
-And add `CarEntityService` to the `providers` array of the module.
+And add `CarEntityService` to the `providers` array of the module; or, use instead the annotation
+`@Injectable({ providedIn: 'root' })`.
 
 ## Using the Entity Service
 
@@ -82,6 +102,14 @@ export class CarDataService extends DefaultDataService<Car> {
   getAll(): Observable<Car[]> {
     return this.http.get('/path/to/cars').pipe(map((response: any) => response.records));
   }
+
+  // Other methods that can be customized
+  add(entity: T): Observable<T>;
+  delete(key: number | string): Observable<number | string>;
+  getById(key: number | string): Observable<T>;
+  getWithQuery(queryParams: QueryParams | string): Observable<T[]>;
+  update(update: Update<T>): Observable<T>;
+  upsert(entity: T): Observable<T>;
 }
 ```
 
@@ -94,7 +122,7 @@ constructor(
   private entityDataService: EntityDataService,
   private carDataService: CarDataService) {
 
-  entitytDataService.registerService('Car', carDataService);
+  entityDataService.registerService('Car', carDataService);
 }
 ```
 

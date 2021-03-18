@@ -22,13 +22,13 @@ Then install the extension for your browser from http://extension.remotedev.io.
 With our app running, we can use the DevTools in the browser to see dispatched actions, state diffs,
 and store contents. We can rewind and replay actions and see the results in the app.
 
-[Contents](../README.md#angular-foxdonut)
-
 ## Strict Immutability
 
 For the DevTools to work correctly, and to run Angular using OnPush Change Detection (see below), we
 need to make sure that we never mutate the state in our reducers. To enforce this, we can set a flag
-in the Store Module:
+in the Store Module.
+
+> Note: this additional configuration is not needed in later versions of NgRx as it is the default.
 
 ```typescript
 StoreModule.forRoot(reducers, {

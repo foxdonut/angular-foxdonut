@@ -3,6 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { State } from '../reducers';
+import { counterFeatureKey } from './counter.reducer';
 import { increment, reset } from './counter.actions';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class CounterService {
 
   constructor(private store: Store<State>) {
     this.state$ = store.pipe(select(state => state));
-    this.counter$ = store.pipe(select(state => state.counter));
+    this.counter$ = store.select(counterFeatureKey);
   }
 
   increment() {
