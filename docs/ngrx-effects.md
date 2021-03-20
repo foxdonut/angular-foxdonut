@@ -56,6 +56,8 @@ login$ = createEffect(() => {
 }, { dispatch: false });
 ```
 
+> The effect must be created outside of the constructor, i.e. as a class property as shown above.
+
 ## A Note about RxJs Flattening Operators
 
 Effects are listeners of observable streams that continue until an error or completion occurs. In
@@ -74,6 +76,29 @@ depending on the operator:
 - `switchMap`: unsubscribes from the current observable as soon as the next observable arrives.
 - `exhaustMap`: only subscribes to the next observable after the current observable has finished,
   ignoring any observables that arrive in the meantime.
+
+For example: imagine that 4 actions arrive from the `action$` observable, in order: action1,
+action2, action3, action4.
+
+Each action triggers an http request, which is an observable. Flattening operators automatically
+subscribe to this observable and flatten the response into the parent.
+
+Now, imagine that the responses from the http requests triggered by the actions arrive in a
+different order: response2, response1, response4, response3.
+
+Which responses are emitted into the parent observable depend on the the flattening operator:
+
+- `mergeMap`: response2, response1, response4, response3
+    - in order of responses, which may be different from the order of actions.
+- `concatMap`: response1, response2, response3, response4
+    - order of responses is kept in the same order as order of actions.
+- `switchMap`: response2, response4
+    - unsubscribed from response1 because response2 arrived sooner; unsubscribed from response3
+      because response4 arrived sooner.
+- `exhaustMap`: response1, response3
+    - waited for response1 to arrive before subscribing to the next observable. Since response2
+      arrived in the meantime, it was ignored and subscription was to response3 instead. Then
+      response4 was ignored because it arrived while waiting for response3.
 
 ## Using an Effect to Load Data
 
