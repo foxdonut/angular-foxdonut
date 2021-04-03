@@ -15,9 +15,7 @@ import { ComponentOptionsStyleComponent } from './component/component-options/co
 import { ComponentOptionsTemplateComponent } from './component/component-options/component-options-template/component-options-template.component';
 import { BindingsComponent } from './bindings/bindings.component';
 import { UsingDirectivesComponent } from './using-directives/using-directives.component';
-import { TemplateFormComponent } from './forms/template-form/template-form.component';
-import { ReactiveFormComponent } from './forms/reactive-form/reactive-form.component';
-import { FormsComponent } from './forms/forms.component';
+import { MyFormsModule } from './forms/my-forms.module';
 import { ValidationComponent } from './validation/validation.component';
 import { ValidationTemplateFormComponent } from './validation/validation-template-form/validation-template-form.component';
 import { ValidationReactiveFormComponent } from './validation/validation-reactive-form/validation-reactive-form.component';
@@ -41,7 +39,7 @@ import { RoutingComponent } from './routing/routing.component';
 import { RoutingUsersComponent } from './routing/routing-users/routing-users.component';
 import { RoutingUserComponent } from './routing/routing-user/routing-user.component';
 import { RoutingAboutComponent } from './routing/routing-about/routing-about.component';
-import { UserGuardService } from './routing/user-guard.service';
+// import { UserGuardService } from './routing/user-guard.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
@@ -66,9 +64,6 @@ import { createServer } from './sinonServer';
     ComponentOptionsTemplateComponent,
     BindingsComponent,
     UsingDirectivesComponent,
-    TemplateFormComponent,
-    ReactiveFormComponent,
-    FormsComponent,
     ValidationComponent,
     ValidationTemplateFormComponent,
     ValidationReactiveFormComponent,
@@ -104,7 +99,8 @@ import { createServer } from './sinonServer';
     EffectsModule.forRoot([AppEffects]),
     DynamicFormModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EntityDataModule.forRoot(entityConfig)
+    EntityDataModule.forRoot(entityConfig),
+    MyFormsModule
   ],
   providers: [
     UsernameService,
