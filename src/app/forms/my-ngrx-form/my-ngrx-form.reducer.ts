@@ -14,6 +14,7 @@ export interface DynamicUiItem {
   dynamicType: string;
   label: string;
   defaultValue: any;
+  options?: Array<any>;
 }
 
 export interface DynamicUiActionProps {
@@ -61,7 +62,12 @@ export const myNgrxFormReducer = createReducer(
   on(
     initDynamicUiAction,
     (state, { items }) => {
-      const values = items.map(item => item.defaultValue);
+      const values = items.map(item => item.options
+        ? item.options.map(option => ({
+          check: option.defaultOption,
+          text: option.text
+        }))
+        : item.defaultValue);
 
       const dynamicForm = createFormGroupState<DynamicFormState>(
         DYNAMIC_FORM_ID,

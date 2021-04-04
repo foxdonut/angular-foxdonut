@@ -26,7 +26,13 @@ export class MyNgrxFormComponent implements OnInit {
       { id: 142, dynamicType: 'checkbox', label: 'Dynamic checkbox 1', defaultValue: null },
       { id: 224, dynamicType: 'text', label: 'Dynamic text field 1', defaultValue: null },
       { id: 42, dynamicType: 'checkbox', label: 'Dynamic checkbox 2', defaultValue: true },
-      { id: 24, dynamicType: 'text', label: 'Dynamic text field 2', defaultValue: 'Yes' }
+      { id: 24, dynamicType: 'text', label: 'Dynamic text field 2', defaultValue: 'Yes' },
+      { id: 840, dynamicType: 'checktext', label: 'Your Options', defaultValue: null, options: [
+        { id: 2840, optionValue: 'Netflix', text: 'Because everyone has it', defaultOption: true },
+        { id: 2841, optionValue: 'Amazon', text: 'Only place for some shows', defaultOption: false },
+        { id: 2842, optionValue: 'Crave', text: 'This one might be Canadian', defaultOption: false },
+        { id: 2843, optionValue: 'Hulu', text: 'What a fun name', defaultOption: false }
+      ]}
     ];
     setTimeout(() => this.store.dispatch(initDynamicUiAction({ items })), 2000);
   }
