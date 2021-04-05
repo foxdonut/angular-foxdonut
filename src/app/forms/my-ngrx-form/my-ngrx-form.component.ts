@@ -34,6 +34,6 @@ export class MyNgrxFormComponent implements OnInit {
         { id: 2843, optionValue: 'Hulu', text: 'What a fun name', defaultOption: false }
       ]}
     ];
-    setTimeout(() => this.store.dispatch(initDynamicUiAction({ items })), 2000);
+    this.store.dispatch(initDynamicUiAction({ items }));
   }
 }

@@ -1,5 +1,13 @@
 import { createAction, createReducer, on, props } from '@ngrx/store';
-import { createFormGroupState, FormGroupState, onNgrxForms } from 'ngrx-forms';
+import {
+  createFormGroupState,
+  disable,
+  enable,
+  FormGroupState,
+  onNgrxForms,
+  updateArray,
+  updateGroup
+} from 'ngrx-forms';
 
 export const CHOICES = ['Internet', 'Phone', 'Word of mouth', 'Other'];
 export const GENDERS = ['Female', 'Male', 'Non-binary'];
@@ -9,12 +17,19 @@ export const myNgrxFormFeatureKey = 'myNgrxForm';
 export const FORM_ID = 'duck';
 export const DYNAMIC_FORM_ID = 'dynamicForm';
 
+export interface DynamicUiOptionItem {
+  id: number;
+  optionValue: string;
+  text: string;
+  defaultOption: boolean;
+}
+
 export interface DynamicUiItem {
   id: number;
   dynamicType: string;
   label: string;
-  defaultValue: any;
-  options?: Array<any>;
+  defaultValue: string | boolean | null;
+  options?: Array<DynamicUiOptionItem>;
 }
 
 export interface DynamicUiActionProps {
@@ -33,14 +48,21 @@ export interface MyNgrxFormState {
   gender: string;
 }
 
+export interface CheckTextState {
+  check: boolean;
+  text: string;
+}
+
+export type DynamicFormValueState = string | boolean | Array<CheckTextState> | null;
+
 export interface DynamicFormState {
-  dynamic: Array<any>;
+  dynamic: Array<DynamicFormValueState>;
 }
 
 export interface ExampleNgrxFormState {
   other: string;
   formState: FormGroupState<MyNgrxFormState>;
-  dynamicUi: Array<any>;
+  dynamicUi: Array<DynamicUiItem>;
   dynamicForm?: FormGroupState<DynamicFormState>;
 }
 
@@ -54,9 +76,16 @@ const initialState: ExampleNgrxFormState = {
     gender: ''
   }),
   dynamicUi: []
+  // dynamicForm populated after init
 };
 
-export const myNgrxFormReducer = createReducer(
+const checkTextFormGroupReducer = updateGroup<DynamicFormState>({
+  dynamic: updateArray((arrState) => {
+    return arrState;
+  })
+});
+
+const ngrxFormReducer = createReducer(
   initialState,
   onNgrxForms(),
   on(
@@ -78,3 +107,11 @@ export const myNgrxFormReducer = createReducer(
     }
   )
 );
+
+export const myNgrxFormReducer = (state, action) => {
+  let updatedState = ngrxFormReducer(state, action);
+  if (updatedState.dynamicForm) {
+    updatedState = { ...updatedState, dynamicForm: checkTextFormGroupReducer(updatedState.dynamicForm) };
+  }
+  return updatedState;
+};
