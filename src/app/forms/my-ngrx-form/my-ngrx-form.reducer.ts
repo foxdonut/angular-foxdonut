@@ -53,7 +53,10 @@ export interface CheckTextState {
   text: string;
 }
 
-export type DynamicFormValueState = string | boolean | Array<CheckTextState> | null;
+export interface DynamicFormValueState {
+  entered?: boolean | string | null;
+  options?: Array<CheckTextState>;
+}
 
 export interface DynamicFormState {
   dynamic: Array<DynamicFormValueState>;
@@ -80,9 +83,20 @@ const initialState: ExampleNgrxFormState = {
 };
 
 const checkTextFormGroupReducer = updateGroup<DynamicFormState>({
+  /*
   dynamic: updateArray((arrState) => {
     return arrState;
   })
+  */
+  dynamic: updateArray(updateGroup({
+    options: updateArray(updateGroup({
+      text: (state, parentState) => {
+        return parentState.value.check
+          ? enable(state)
+          : disable(state);
+      }
+    }))
+  }))
 });
 
 const ngrxFormReducer = createReducer(
@@ -92,11 +106,13 @@ const ngrxFormReducer = createReducer(
     initDynamicUiAction,
     (state, { items }) => {
       const values = items.map(item => item.options
-        ? item.options.map(option => ({
-          check: option.defaultOption,
-          text: option.text
-        }))
-        : item.defaultValue);
+        ? {
+            options: item.options.map(option => ({
+              check: option.defaultOption,
+              text: option.text
+            }))
+          }
+        : { entered: item.defaultValue });
 
       const dynamicForm = createFormGroupState<DynamicFormState>(
         DYNAMIC_FORM_ID,

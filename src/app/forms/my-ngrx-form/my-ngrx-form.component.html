@@ -49,25 +49,25 @@
     <div *ngFor="let ui of state.dynamicUi; let idx1 = index">
       <label *ngIf="ui.dynamicType === 'checkbox'">
         <input type="checkbox"
-          [ngrxFormControlState]="state.dynamicForm.controls.dynamic.controls[idx1]">
+          [ngrxFormControlState]="state.dynamicForm.controls.dynamic.controls[idx1].controls.entered">
         {{ ui.label }}
       </label>
       <label *ngIf="ui.dynamicType === 'text'">
         {{ ui.label }}
         <input type="text"
-          [ngrxFormControlState]="state.dynamicForm.controls.dynamic.controls[idx1]">
+          [ngrxFormControlState]="state.dynamicForm.controls.dynamic.controls[idx1].controls.entered">
       </label>
       <div *ngIf="ui.dynamicType === 'checktext'">
         <div>{{ ui.label }}</div>
         <div *ngFor="let option of ui.options; let idx2 = index">
           <label>
             <input type="checkbox"
-              [ngrxFormControlState]="state.dynamicForm.controls.dynamic.controls[idx1].controls[idx2].controls.check">
+              [ngrxFormControlState]="state.dynamicForm.controls.dynamic.controls[idx1].controls.options.controls[idx2].controls.check">
             {{ option.optionValue }}
           </label>
           <div>
             <textarea class="form-control"
-              [ngrxFormControlState]="state.dynamicForm.controls.dynamic.controls[idx1].controls[idx2].controls.text">
+              [ngrxFormControlState]="state.dynamicForm.controls.dynamic.controls[idx1].controls.options.controls[idx2].controls.text">
             </textarea>
           </div>
         </div>
