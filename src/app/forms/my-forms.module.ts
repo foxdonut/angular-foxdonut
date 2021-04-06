@@ -8,13 +8,15 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { MyNgrxFormComponent } from './my-ngrx-form/my-ngrx-form.component';
 import { myNgrxFormFeatureKey, myNgrxFormReducer } from './my-ngrx-form/my-ngrx-form.reducer';
+import { MyDynamicReactiveFormComponent } from './my-dynamic-reactive-form/my-dynamic-reactive-form.component';
 
 @NgModule({
   declarations: [
     FormsComponent,
     TemplateFormComponent,
     ReactiveFormComponent,
-    MyNgrxFormComponent
+    MyNgrxFormComponent,
+    MyDynamicReactiveFormComponent
   ],
   imports: [
     CommonModule,

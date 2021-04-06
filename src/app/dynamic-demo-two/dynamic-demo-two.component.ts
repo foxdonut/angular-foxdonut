@@ -48,7 +48,7 @@ export class DynamicDemoTwoComponent implements OnInit {
         }
       ]
     }
-  ]
+  ];
 
   constructor() { }
 

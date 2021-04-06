@@ -1,0 +1,33 @@
+<hr>
+<h4>my-dynamic-reactive-form</h4>
+<hr>
+
+<form [formGroup]="form">
+  <div *ngFor="let ui of items">
+    <label *ngIf="ui.dynamicType === 'checkbox'">
+      <input type="checkbox" [formControlName]="ui.key">
+      {{ ui.label }}
+    </label>
+    <label *ngIf="ui.dynamicType === 'text'">
+      {{ ui.label }}
+      <input type="text" [formControlName]="ui.key">
+    </label>
+    <div *ngIf="ui.dynamicType === 'checktext'" [formGroupName]="ui.key">
+      <div>{{ ui.label }}</div>
+      <div *ngFor="let option of ui.options">
+        <label>
+          <input type="checkbox" [formControlName]="option.keyCheck">
+          {{ option.optionValue }}
+        </label>
+        <div>
+          <textarea class="form-control" [formControlName]="option.keyText"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2">
+    <button class="btn btn-primary" type="button" (click)="onSubmit()">Save</button>
+  </div>
+</form>
+
+<div>{{ formSerial }}</div>
