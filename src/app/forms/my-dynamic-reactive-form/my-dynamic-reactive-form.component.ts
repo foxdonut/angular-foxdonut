@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-my-dynamic-reactive-form',
@@ -10,7 +10,7 @@ export class MyDynamicReactiveFormComponent implements OnInit {
   items: any[];
   formSerial: string;
 
-  constructor() {
+  constructor(private readonly formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -26,23 +26,19 @@ export class MyDynamicReactiveFormComponent implements OnInit {
         { id: 2843, optionValue: 'Hulu', text: 'What a fun name', defaultOption: false }
       ]}
     ];
-    this.form = new FormGroup(
+    this.form = this.formBuilder.group(
       this.items.reduce(
         (result, next) => {
           const key = `q_${next.id}`;
           next.key = key;
 
           if (next.options?.length > 0) {
-            result[key] = new FormGroup(next.options.reduce((controls, option) => {
+            result[key] = this.formBuilder.group(next.options.reduce((controls, option) => {
               option.keyCheck = `${option.id}_check`;
               option.keyText  = `${option.id}_text`;
 
               controls[option.keyCheck] = new FormControl(option.defaultOption);
-              controls[option.keyText] = new FormControl(option.text);
-
-              if (!option.defaultOption) {
-                controls[option.keyText].disable();
-              }
+              controls[option.keyText] = new FormControl({ value: option.text, disabled: !option.defaultOption });
 
               controls[option.keyCheck].valueChanges.subscribe(checked => {
                 if (checked) {
@@ -50,12 +46,12 @@ export class MyDynamicReactiveFormComponent implements OnInit {
                 } else {
                   controls[option.keyText].disable();
                 }
-              })
+              });
 
               return controls;
             }, {}));
           } else {
-            result[key] = new FormControl(next.defaultValue);
+            result[key] = [next.defaultValue];
           }
           return result;
         },
