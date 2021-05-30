@@ -19,10 +19,9 @@ import { RoutingUsersComponent } from './routing/routing-users/routing-users.com
 import { RoutingUserComponent } from './routing/routing-user/routing-user.component';
 import { UserGuardService } from './routing/user-guard.service';
 import { UserResolveService } from './routing/user-resolve.service';
-import { CounterComponent } from './counter/counter.component';
-import { CarAppComponent } from './car-app/car-app.component';
 import { DynamicDemoComponent } from './dynamic-demo/dynamic-demo.component';
 import { DynamicDemoTwoComponent } from './dynamic-demo-two/dynamic-demo-two.component';
+import { LoadingStateComponent } from './loading-state/loading-state.component';
 
 const routes: Routes = [
   { path: '', component: HelloComponent },
@@ -49,6 +48,7 @@ const routes: Routes = [
   { path: 'car-app', loadChildren: () => import('./car-app/car-app.module').then(m => m.CarAppModule ) },
   { path: 'dynamic-demo', component: DynamicDemoComponent },
   { path: 'dynamic-demo-two', component: DynamicDemoTwoComponent },
+  { path: 'loading-state', component: LoadingStateComponent },
   { path: '**', redirectTo: '/' }
 ];
 

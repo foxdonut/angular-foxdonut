@@ -1,0 +1,17 @@
+<h4>loading state</h4>
+
+<div>Items:</div>
+
+<div [ngSwitch]="items">
+  <div *ngSwitchCase="LoadingStates.Pending">Pending</div>
+  <div *ngSwitchCase="LoadingStates.Loading">Loading...</div>
+  <ul *ngSwitchDefault>
+    <li *ngFor="let item of items">{{item}}</li>
+  </ul>
+</div>
+
+<div>
+  <button class="btn btn-primary btn-sm mr-2" (click)="startLoad()">Start</button>
+  <button class="btn btn-primary btn-sm mr-2" (click)="completeLoad()">Complete</button>
+  <button class="btn btn-secondary btn-sm" (click)="restart()">Reset</button>
+</div>

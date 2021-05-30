@@ -53,6 +53,8 @@ import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 
 import { createServer } from './sinonServer';
+import { CommonModule } from '@angular/common';
+import { LoadingStateComponent } from './loading-state/loading-state.component';
 
 @NgModule({
   declarations: [
@@ -87,9 +89,11 @@ import { createServer } from './sinonServer';
     RoutingAboutComponent,
     DynamicDemoComponent,
     DynamicFormTwoComponent,
-    DynamicDemoTwoComponent
+    DynamicDemoTwoComponent,
+    LoadingStateComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
