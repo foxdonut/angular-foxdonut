@@ -2,13 +2,13 @@
 
 <div>Items:</div>
 
-<div [ngSwitch]="items">
+<ng-container [ngSwitch]="items">
   <div *ngSwitchCase="LoadingStates.Pending">Pending</div>
   <div *ngSwitchCase="LoadingStates.Loading">Loading...</div>
   <ul *ngSwitchDefault>
     <li *ngFor="let item of items">{{item}}</li>
   </ul>
-</div>
+</ng-container>
 
 <div>
   <button class="btn btn-primary btn-sm mr-2" (click)="startLoad()">Start</button>
