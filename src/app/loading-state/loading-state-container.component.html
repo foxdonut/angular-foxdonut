@@ -1,0 +1,7 @@
+<ng-container [ngSwitch]="loadingState.type">
+  <div *ngSwitchCase="LoadingStates.Pending">Awaiting (pending)</div>
+  <div *ngSwitchCase="LoadingStates.Loading">Loading...</div>
+  <ng-container *ngSwitchCase="LoadingStates.Success">
+    <ng-content></ng-content>
+  </ng-container>
+</ng-container>

@@ -2,13 +2,11 @@
 
 <div>Items:</div>
 
-<ng-container [ngSwitch]="items.type">
-  <div *ngSwitchCase="LoadingStates.Pending">Pending</div>
-  <div *ngSwitchCase="LoadingStates.Loading">Loading...</div>
-  <ul *ngSwitchCase="LoadingStates.Success">
+<app-loading-state-container [loadingState]="items">
+  <ul>
     <li *ngFor="let item of items.value">{{item}}</li>
   </ul>
-</ng-container>
+</app-loading-state-container>
 
 <div>
   <button class="btn btn-primary btn-sm mr-2" (click)="startLoad()">Start</button>

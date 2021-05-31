@@ -55,6 +55,7 @@ import { entityConfig } from './entity-metadata';
 import { createServer } from './sinonServer';
 import { CommonModule } from '@angular/common';
 import { LoadingStateComponent } from './loading-state/loading-state.component';
+import { LoadingStateContainerComponent } from './loading-state/loading-state-container.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { LoadingStateComponent } from './loading-state/loading-state.component';
     DynamicDemoComponent,
     DynamicFormTwoComponent,
     DynamicDemoTwoComponent,
-    LoadingStateComponent
+    LoadingStateComponent,
+    LoadingStateContainerComponent
   ],
   imports: [
     CommonModule,
