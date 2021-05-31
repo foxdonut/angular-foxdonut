@@ -2,10 +2,24 @@ import { Component } from '@angular/core';
 
 enum LoadingStates {
     Pending,
-    Loading
+    Loading,
+    Success,
+    Failure
 }
 
-type LoadingState<T> = LoadingStates | T;
+interface LoadingState<T> {
+    type: LoadingStates;
+    value?: T;
+}
+
+const LoadingStateOf = {
+    pending: () => ({ type: LoadingStates.Pending }),
+    loading: () => ({ type: LoadingStates.Loading }),
+    success: <T>(value: T) => ({ type: LoadingStates.Success, value }),
+    failure: () => ({ type: LoadingStates.Failure }),
+    map: <T, U>(ls: LoadingState<T>, fn: ((value: T) => U)) =>
+        ({ type: ls.type, value: ls.value !== undefined ? fn(ls.value) : ls.value })
+};
 
 @Component({
     selector: 'app-loading-state',
@@ -13,17 +27,17 @@ type LoadingState<T> = LoadingStates | T;
 })
 export class LoadingStateComponent {
     LoadingStates = LoadingStates;
-    items: LoadingState<string[]> = LoadingStates.Pending;
+    items: LoadingState<string[]> = LoadingStateOf.pending();
 
     startLoad(): void {
-        this.items = LoadingStates.Loading;
+        this.items = LoadingStateOf.loading();
     }
 
     completeLoad(): void {
-        this.items = ['One', 'Two', 'Three', 'Go'];
+        this.items = LoadingStateOf.success(['One', 'Two', 'Three', 'Go']);
     }
 
     restart(): void {
-        this.items = LoadingStates.Pending;
+        this.items = LoadingStateOf.pending();
     }
 }

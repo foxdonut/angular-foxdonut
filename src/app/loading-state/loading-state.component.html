@@ -2,11 +2,11 @@
 
 <div>Items:</div>
 
-<ng-container [ngSwitch]="items">
+<ng-container [ngSwitch]="items.type">
   <div *ngSwitchCase="LoadingStates.Pending">Pending</div>
   <div *ngSwitchCase="LoadingStates.Loading">Loading...</div>
-  <ul *ngSwitchDefault>
-    <li *ngFor="let item of items">{{item}}</li>
+  <ul *ngSwitchCase="LoadingStates.Success">
+    <li *ngFor="let item of items.value">{{item}}</li>
   </ul>
 </ng-container>
 
